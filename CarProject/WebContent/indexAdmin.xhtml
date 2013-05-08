@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets" 
+	  xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:h="http://java.sun.com/jsf/html"	  
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Página Administrador</title>
+</h:head>
+<h:body>
+	<p:layout fullPage = "true">
+		
+		<p:layoutUnit position = "north" size = "100" header = "Titulo Página" resizable = "false" closable = "false" collapsible = "true">
+			<font size = "1"><h:outputText value = "Botar alguma imagem por aqui"/></font>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position = "south" size = "70" header = "Bottom" resizable = "false" closable = "false" collapsible = "true">
+			<h:outputText value = "Aqui a gente bota algo de direitos autorais"/>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position = "west" size = "200" header = "Painel Administrador" resizable = "false" closable = "false" collapsible = "true">
+			<h:form prependId="false">
+			<p:panelMenu style = "width:190px">
+				
+				<p:submenu label = "Painel Concessionária">				
+					<p:menuitem id = "cadastroConcessionaria" value = "Cadastrar Concessionária" action = "#{carregarPaginaMB.changePageConcessionaria('teste')}" ajax = "true" update = ":carregaConteudoCon"/>
+					<p:menuitem value = "Alterar Dados Concessionária" url = "alterarDadosConcessionaria.xhtml"/>					
+				</p:submenu>
+				
+				<p:submenu label = "Painel Carros">
+					<p:menuitem id ="cadastroCarro" value = "Cadastrar Carros" action = "#{carregarPaginaMB.changePageCarro('teste')}" ajax = "true" update = ":carregaConteudoCon"/>
+					<p:menuitem value = "Alterar Dados Carro" url = "alterarDadosCarro.xhtml"/>
+				</p:submenu>
+				
+				<p:submenu label = "Painel Motos">
+					<p:menuitem value = "Cadastrar Motos" url = "cadastroMoto.xhtml"/>
+					<p:menuitem value = "Alterar Dados Motos" url = "alterarDadosMoto.xhtml"/>
+				</p:submenu>
+				
+				<p:submenu label = "Informações Veículo">
+					<p:menuitem value = "Informações Carro" url = "buscarCarro.xhtml"/>
+					<p:menuitem value = "Informações Moto" url = "buscarMoto.xhtml"/>
+				</p:submenu>				
+			</p:panelMenu>
+			</h:form>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position = "east" size = "200" header = "Links Afiliados" resizable = "false" closable = "false" collapsible = "true">
+				<font size = "1"><h:outputText  value = "Aqui bota links das concessionarias"/></font>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="center">
+			<p:panel id = "carregaConteudoCon"> 
+					<ui:include src="#{carregarPaginaMB.pagina}"/>				
+			</p:panel>
+		</p:layoutUnit>
+		
+	</p:layout>
+</h:body>
+</html>

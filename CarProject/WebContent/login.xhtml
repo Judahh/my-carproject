@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="StyleSheet" type="text/css" href="css/estilos.css"
+		media="screen" />
+	<title>Login</title>
+</h:head>
+<h:body>
+	<center>
+		<h:form id="formlogin">
+			<p:panel id="panelLogin" header="Login"
+				style="width:400px;height:230px" align="center">
+
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+
+				<p:panelGrid style="text-align: center">
+
+					<p:row>
+						<p:column>
+							<h:outputLabel value="Login:" for="login"
+								style="text-align: center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="login" value="#{usuarioBean.login}"
+								styleClass="edit" style="text-align: center" required="true"
+								label="Login">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel value="Senha:" for="senha"
+								style="text-align: center" />
+						</p:column>
+						<p:column>
+							<p:password id="senha" value="#{usuarioBean.password}"
+								styleClass="edit" style="text-align: center" required="true"
+								label="Senha" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column colspan="2" style="text-align:center ;">
+							<p:commandButton value="Entrar"
+								action="#{usuarioBean.validateLogin}" style="text-align: center"
+								ajax="true" />
+							<p:commandButton value="Limpar" type="reset" />
+						</p:column>
+					</p:row>
+
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+	</center>
+</h:body>
+</html>
