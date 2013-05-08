@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:form id="formCadastroCarro">
+	<p:panel id="panelCarro" header="Cadastro da Carro"
+		style="width:450px;height:820px" align="center">
+
+		<p:messages id="messages" autoUpdate="true" closable="true" />
+
+		<p:panelGrid style="text-align: left">
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Código Carro: " for="codCarro"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
+						size="20" required="true" label="códigoCarro">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Marca: " for="marca"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="marca" value="#{carroMB.carro.marca}" style="text-transform:uppercase" size="20"
+						required="true" label="marca">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Modelo: " for="modelo"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="modelo" value="#{carroMB.carro.modelo}" style="text-transform:uppercase" size="20"
+						required="true" label="modelo">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Preço Tabelado: " for="precoTabelado"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="precoTabelado"
+						value="#{carroMB.carro.precoTabelado}" size="20" required="true"
+						label="precoTabelado">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Tipo: " for="tipo" style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:selectOneMenu id="tipo">
+						<f:selectItem itemLabel="Selecione o tipo de carro..."
+							itemValue="#{carroMB.carro.tipo.getNome()}" />
+						<f:selectItems value="#{tipoMB.listar()}"
+							itemValue="#{tpCarro.codTipo}" itemLabel="#{tpCarro.nome}"
+							var="tpCarro" />
+					</p:selectOneMenu>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Potência (CV): " for="potencia"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="potencia" value="#{carroMB.carro.potencia}"
+						size="20" required="true" label="potencia">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Capacidade em litros: "
+						for="capacidadeLitros" style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:selectOneMenu id="capacidadeLitros">
+						<f:selectItem itemLabel="Selecione a capacidade em litros..."
+							itemValue="" />
+						<f:selectItems value="#{capLitrosMB.listar()}"
+							itemValue="#{capLitrosMB.capacidadeLitros.codCap}" />
+					</p:selectOneMenu>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Posição do Motor: " for="posicaoMotor"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="posicaoMotor"
+						value="#{carroMB.carro.posicaoMotor}" size="20" required="true"
+						label="posicaoMotor">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Combustivel: " for="combustivel"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:selectOneMenu id="combustivel">
+						<f:selectItem itemLabel="Selecione o tipo de combustivel..."
+							itemValue="" />
+						<f:selectItems value="#{combustivelMB.listar()}"
+							itemValue="#{combustivelMB.combustivel.codCombustivel}" />
+					</p:selectOneMenu>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Autonomia (KM/L): " for="autonomiaKM"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="autonomiaKM" value="#{carroMB.carro.autonomiaKM}"
+						size="20" required="true" label="autonomiaKM">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Autonomia (KM/L - cidade): " for="kmCidade"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="kmCidade" value="#{carroMB.carro.kmCidade}"
+						size="20" required="true" label="kmCidade">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Autonomia (KM/L - estrada) " for="kmEstrada"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="kmEstrada" value="#{carroMB.carro.kmEstrada}"
+						size="20" required="true" label="kmEstrada">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Número de assentos:" for="numAssentos"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="numAssentos" value="#{carroMB.carro.numAssentos}"
+						size="20" required="true" label="numAssentos">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Volume Bagageiro: " for="volumeBagageiro"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="volumeBagageiro"
+						value="#{carroMB.carro.volumeBagageiro}" size="20" required="true"
+						label="volumeBagageiro">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Volume Tanque: " for="volumeTanque"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="volumeTanque"
+						value="#{carroMB.carro.volumeTanque}" size="20" required="true"
+						label="volumeTanque">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Quantidade de Portas:" for="qntPortas"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="qntPortas" value="#{carroMB.carro.qntPortas}"
+						size="20" required="true" label="qntPortas">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Área cega: " for="areaCega"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="areaCega" value="#{carroMB.carro.areaCega}"
+						size="20" required="true" label="areaCega">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Aceleração (0-100/s): " for="aceleracao"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="aceleracao" value="#{carroMB.carro.aceleracao}"
+						size="20" required="true" label="aceleracao">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Velocidade Máxima: " for="velocidadeMax"
+						style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="velocidadeMax"
+						value="#{carroMB.carro.velocidadeMax}" size="20" required="true"
+						label="velocidadeMax">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Ano: " for="ano" style="text-align:center" />
+				</p:column>
+				<p:column>
+					<p:inputText id="ano" value="#{carroMB.carro.ano}" size="20"
+						required="true" label="ano">
+					</p:inputText>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column colspan="2" style="text-align: center;">
+
+					<p:commandButton id="showDialogButton" value="Cadastrar"
+						update="formCadastroCarro" process="@form"
+						action="#{carroMB.inserir}" style="text-align:center" />
+
+
+					<p:confirmDialog id="confirmDialog" message="Concluir cadastro?"
+						header="Processo de cadastro" severity="alert"
+						widgedVar="confirmation">
+
+						<p:commandButton id="confirm" value="Sim" update="messages"
+							oncomplete="confirmation.hide()"
+							actionListener="#{buttonBean.confirmaCadastro}" />
+						<p:commandButton id="decline" value="Não"
+							onclick="confirmation.hide()" type="button" />
+
+					</p:confirmDialog>
+
+					<p:commandButton value="Limpar Campos" type="reset"
+						style="text-align:center" />
+
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+						
+	</p:panel>
+</h:form>
+</html>

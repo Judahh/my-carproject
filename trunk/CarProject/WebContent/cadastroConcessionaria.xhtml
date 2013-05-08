@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<h:form id="formCadastroConcessionaria">
+		<p:panel id="panelConcessionaria" header="Cadastro da Concessionária"
+			style="width:450px;height:500px" align="center">
+			
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+	
+			<p:panelGrid style="text-align: left">
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Código empresa: " for="codConcessionaria"
+							 style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="codConcessionaria"
+							value="#{concessionariaMB.concessionaria.codConcessionaria}"
+							 size="20" required="true"
+							label="Código da Empresa">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Nome da empresa: " for="nomeConcessionaria" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="nomeConcessionaria"
+							value="#{concessionariaMB.concessionaria.nomeConcessionaria}"
+							 size="20" required="true"
+							label="Nome da empresa" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="CNPJ: " for="cnpj"/>
+					</p:column>
+					<p:column>
+						<p:inputText id="cnpj"
+							value="#{concessionariaMB.concessionaria.cnpj}" 
+							size="20" required="true" label="cnpj" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Endereço: " for="endereco" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="endereco"
+							value="#{concessionariaMB.concessionaria.endereco}"
+							 size="20" required="true" label="Endereco" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Bairro: " for="bairro" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="bairro"
+							value="#{concessionariaMB.concessionaria.bairro}"
+							styleClass="edit" size="20" required="true" label="Bairro" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Local Referência: " for="referencia" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="referencia"
+							value="#{concessionariaMB.concessionaria.referencia}"
+							 size="20" required="false" label="Referência" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Site: " for="enderecoWEB" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="enderecoWEB"
+							value="#{concessionariaMB.concessionaria.enderecoWEB}"
+							 size="20" required="false" label="Endereco Web" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Email: " for="email" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="email"
+							value="#{concessionariaMB.concessionaria.email}" 
+							size="20" required="false" label="Email" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Telefone para contato: " for="telefone" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="telefone"
+							value="#{concessionariaMB.concessionaria.telefone}"
+							 size="20" required="true" label="Telefone" />
+					</p:column>
+				</p:row>
+	
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Telefone opcional: " for="telefone2" style="text-align:center" />
+					</p:column>
+					<p:column>
+						<p:inputText id="telefone2"
+							value="#{concessionariaMB.concessionaria.telefone2}"
+							size="20" required="false"
+							label="Telefone Opcional" />
+					</p:column>
+				</p:row>
+
+			<p:row>
+				<p:column colspan="2" style="text-align: center;">
+
+					<p:commandButton id="showDialogButton" value="Cadastrar"
+						update="formCadastroConcessionaria" process="@form"
+						action="#{concessionariaMB.inserir}" style="text-align:center" />
+
+
+					<p:confirmDialog id="confirmDialog" message="Concluir cadastro?"
+						header="Processo de cadastro" severity="alert"
+						widgedVar="confirmation">
+
+						<p:commandButton id="confirm" value="Sim" update="messages"
+							oncomplete="confirmation.hide()"
+							actionListener="#{buttonBean.confirmaCadastro}" />
+						<p:commandButton id="decline" value="Não"
+							onclick="confirmation.hide()" type="button" />
+
+					</p:confirmDialog>
+
+					<p:commandButton value="Limpar Campos" type="reset"
+						style="text-align:center" />
+
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+		</p:panel>
+	</h:form>
+		
+</html>

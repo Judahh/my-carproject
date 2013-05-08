@@ -1,0 +1,58 @@
+@CHARSET "ISO-8859-1";
+*{
+	/* definir que todos elementos da página ficarão
+	em negrito e com fonte arial */
+	
+	font-weight: bold;
+	font-family: arial;
+	
+	/* define o tamanho da fonte para todos elementos */
+	
+	font-size: 12px;
+	
+}
+
+.edit{
+	
+	/* Define a borda do elemento, com um efeito de 
+	baixo-relevo menor que o padrão */
+	
+	border: 1px inset;
+	
+	/* especifica a cor cinza como pano de fundo do elemento */
+	
+	background-color: #D3D3D3;
+	
+	/* Especifica como preta a cor da fonte do elemento */
+	
+	color: #000000;
+	
+}
+
+.botoes{
+	/* Especifica a cor preto como pano de fundo do elemento */
+	backgroud-color: #000000;
+	
+	/*Especifica como azul a cor da fonte do elemento */
+	color: #003366;
+	
+	/* Define a borda do elemento, com um efeito de alto-relevo menor que o padrão */
+	border: 1px outset;
+		
+}
+
+.rotulos{
+	/* Especifica preta a cor da fonte do elemento */
+	color: #000000;	
+}
+
+.rotulosCapitalized {
+	/*transforma o texto do campo em maiúsculo */
+	color: #000000;
+    text-transform: capitalize;
+}
+
+legend{
+	/*define o tamanho da fonte para a legenda do FieldSet*/
+	font-size:12px;
+}
