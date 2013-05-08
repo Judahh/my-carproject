@@ -1,6 +1,7 @@
 package managedbean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -36,4 +37,9 @@ public class TipoMB implements Serializable {
 	public void setTp(TipoCarro tp){
 		this.tp = tp;
 	}
+	
+	public List<TipoCarro> getTipos(){
+		return tpDAO.getListar();
+	}
+		
 }

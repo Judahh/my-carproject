@@ -71,7 +71,7 @@
 					<p:selectOneMenu id="tipo">
 						<f:selectItem itemLabel="Selecione o tipo de carro..."
 							itemValue="#{carroMB.carro.tipo.getNome()}" />
-						<f:selectItems value="#{tipoMB.listar()}"
+						<f:selectItems value="#{tipoMB.tipos}"
 							itemValue="#{tpCarro.codTipo}" itemLabel="#{tpCarro.nome}"
 							var="tpCarro" />
 					</p:selectOneMenu>
@@ -98,9 +98,9 @@
 				<p:column>
 					<p:selectOneMenu id="capacidadeLitros">
 						<f:selectItem itemLabel="Selecione a capacidade em litros..."
-							itemValue="" />
-						<f:selectItems value="#{capLitrosMB.listar()}"
-							itemValue="#{capLitrosMB.capacidadeLitros.codCap}" />
+							itemValue="#{carroMB.carro.capacidadeLitros.getCapacidadeLitros()}" />
+						<f:selectItems value="#{capLitrosMB.capacidades}"
+							itemValue="#{clitros.codCap}" itemLabel = "#{clitros.capacidadeLitros}" var = "clitros"/>
 					</p:selectOneMenu>
 				</p:column>
 			</p:row>
@@ -126,9 +126,9 @@
 				<p:column>
 					<p:selectOneMenu id="combustivel">
 						<f:selectItem itemLabel="Selecione o tipo de combustivel..."
-							itemValue="" />
-						<f:selectItems value="#{combustivelMB.listar()}"
-							itemValue="#{combustivelMB.combustivel.codCombustivel}" />
+							itemValue="#{carroMB.carro.combustivel.getCombustivel()}" />
+						<f:selectItems value="#{combustivelMB.combustiveis}"
+							itemValue="#{comb.codCombustivel}" itemLabel = "#{comb.combustivel}" var = "comb" />
 					</p:selectOneMenu>
 				</p:column>
 			</p:row>
@@ -296,4 +296,5 @@
 						
 	</p:panel>
 </h:form>
+
 </html>

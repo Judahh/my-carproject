@@ -1,12 +1,12 @@
 package managedbean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import beans.CapacidadeLitros;
-
 import dao.CapacidadeLitrosDAO;
 
 @ManagedBean
@@ -35,5 +35,9 @@ public class CapLitrosMB implements Serializable{
 	
 	public void setCp(CapacidadeLitros cp){
 		this.cp = cp;
+	}
+	
+	public List<CapacidadeLitros> getCapacidades(){
+		return cpDAO.getListar();
 	}
 }

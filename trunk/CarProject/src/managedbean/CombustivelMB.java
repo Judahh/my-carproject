@@ -1,6 +1,7 @@
 package managedbean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -37,6 +38,9 @@ public class CombustivelMB implements Serializable{
 	public void setCombustivel(Combustivel combustivel){
 		this.combustivel = combustivel;
 	}
-
+	
+	public List<Combustivel> getCombustiveis(){
+		return combustivelDAO.getListar();
+	}
 
 }
