@@ -15,12 +15,13 @@ public class CapacidadeLitrosDAO implements Serializable{
 	
 	private static final long serialVersionUID = 6409693878451339699L;
 	
-	List <CapacidadeLitros> selectLitro = new ArrayList <CapacidadeLitros>();
+	
 	
 	public List <CapacidadeLitros> getListar(){
 		
 		Connection c = null;
 		PreparedStatement ps = null;
+		List <CapacidadeLitros> selectLitro = new ArrayList <CapacidadeLitros>();
 		
 		try{
 			c = ConnectionManager.open();

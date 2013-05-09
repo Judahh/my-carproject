@@ -14,12 +14,13 @@ public class CombustivelDAO implements Serializable{
 
 
 	private static final long serialVersionUID = -4389423331774842273L;
-	List <Combustivel> selectCombustivel = new ArrayList <Combustivel>();
+	
 	
 	public List <Combustivel> getListar() {
 		
 		Connection c = null;
 		PreparedStatement ps = null;
+		List <Combustivel> selectCombustivel = new ArrayList <Combustivel>();
 		
 		try{
 			c = ConnectionManager.open();
