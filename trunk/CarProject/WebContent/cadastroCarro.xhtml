@@ -7,7 +7,7 @@
 
 <h:form id="formCadastroCarro">
 	<p:panel id="panelCarro" header="Cadastro da Carro"
-		style="width:450px;height:820px" align="center">
+		style="width:450px;height:720px" align="center" toggleable="true" >
 
 		<p:messages id="messages" autoUpdate="true" closable="true" />
 
@@ -32,8 +32,9 @@
 						style="text-align:center" />
 				</p:column>
 				<p:column>
-					<p:inputText id="marca" value="#{carroMB.carro.marca}" style="text-transform:uppercase" size="20"
-						required="true" label="marca">
+					<p:inputText id="marca" value="#{carroMB.carro.marca}"
+						style="text-transform:uppercase" size="20" required="true"
+						label="marca">
 					</p:inputText>
 				</p:column>
 			</p:row>
@@ -44,8 +45,9 @@
 						style="text-align:center" />
 				</p:column>
 				<p:column>
-					<p:inputText id="modelo" value="#{carroMB.carro.modelo}" style="text-transform:uppercase" size="20"
-						required="true" label="modelo">
+					<p:inputText id="modelo" value="#{carroMB.carro.modelo}"
+						style="text-transform:uppercase" size="20" required="true"
+						label="modelo">
 					</p:inputText>
 				</p:column>
 			</p:row>
@@ -100,7 +102,8 @@
 						<f:selectItem itemLabel="Selecione a capacidade em litros..."
 							itemValue="#{carroMB.carro.capacidadeLitros.getCapacidadeLitros()}" />
 						<f:selectItems value="#{capLitrosMB.capacidades}"
-							itemValue="#{clitros.codCap}" itemLabel = "#{clitros.capacidadeLitros}" var = "clitros"/>
+							itemValue="#{clitros.codCap}"
+							itemLabel="#{clitros.capacidadeLitros}" var="clitros" />
 					</p:selectOneMenu>
 				</p:column>
 			</p:row>
@@ -128,7 +131,8 @@
 						<f:selectItem itemLabel="Selecione o tipo de combustivel..."
 							itemValue="#{carroMB.carro.combustivel.getCombustivel()}" />
 						<f:selectItems value="#{combustivelMB.combustiveis}"
-							itemValue="#{comb.codCombustivel}" itemLabel = "#{comb.combustivel}" var = "comb" />
+							itemValue="#{comb.codCombustivel}"
+							itemLabel="#{comb.combustivel}" var="comb" />
 					</p:selectOneMenu>
 				</p:column>
 			</p:row>
@@ -271,8 +275,8 @@
 				<p:column colspan="2" style="text-align: center;">
 
 					<p:commandButton id="showDialogButton" value="Cadastrar"
-						update="formCadastroCarro" process="@form"
-						action="#{carroMB.inserir}" style="text-align:center" />
+						update="formCadastroCarro" process="@form" 
+						actionListener = "#{carroMB.inserir}" style="text-align:center" />
 
 
 					<p:confirmDialog id="confirmDialog" message="Concluir cadastro?"
@@ -281,7 +285,7 @@
 
 						<p:commandButton id="confirm" value="Sim" update="messages"
 							oncomplete="confirmation.hide()"
-							actionListener="#{buttonBean.confirmaCadastro}" />
+							actionListener = "#{buttonBean.confirmaCadastro}" />
 						<p:commandButton id="decline" value="Não"
 							onclick="confirmation.hide()" type="button" />
 
@@ -293,7 +297,6 @@
 				</p:column>
 			</p:row>
 		</p:panelGrid>
-						
 	</p:panel>
 </h:form>
 

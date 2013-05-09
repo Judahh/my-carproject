@@ -30,6 +30,11 @@ public class CarroMB implements Serializable{
 		carroDAO.inserirCarro( carro );
 	}
 	
+	public void buscar(){
+		System.out.println("Busca (ok): " + carro.toString());
+		carroDAO.getBuscar();		
+	}
+	
 	public Carro getCarro(){
 		return carro;
 	}

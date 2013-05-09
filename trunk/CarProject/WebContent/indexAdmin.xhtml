@@ -9,9 +9,10 @@
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Página Administrador</title>
+<link rel="StyleSheet" type = "text/css" href = "css/fonte.css" media = "screen"/>
 </h:head>
 <h:body>
-	<p:layout fullPage = "true">
+	<p:layout fullPage = "true" >
 		
 		<p:layoutUnit position = "north" size = "100" header = "Titulo Página" resizable = "false" closable = "false" collapsible = "true">
 			<font size = "1"><h:outputText value = "Botar alguma imagem por aqui"/></font>
@@ -26,12 +27,12 @@
 			<p:panelMenu style = "width:190px">
 				
 				<p:submenu label = "Painel Concessionária">				
-					<p:menuitem id = "cadastroConcessionaria" value = "Cadastrar Concessionária" action = "#{carregarPaginaMB.changePageConcessionaria('teste')}" ajax = "true" update = ":carregaConteudoCon"/>
+					<p:menuitem id = "cadastroConcessionaria" value = "Cadastrar Concessionária" action = "#{carregarPaginaMB.changePageConcessionaria(' ')}" ajax = "true" update = ":carregaConteudoCon"/>
 					<p:menuitem value = "Alterar Dados Concessionária" url = "alterarDadosConcessionaria.xhtml"/>					
 				</p:submenu>
 				
 				<p:submenu label = "Painel Carros">
-					<p:menuitem id ="cadastroCarro" value = "Cadastrar Carros" action = "#{carregarPaginaMB.changePageCarro('teste')}" ajax = "true" update = ":carregaConteudoCon"/>
+					<p:menuitem id ="cadastroCarro" value = "Cadastrar Carros" action = "#{carregarPaginaMB.changePageCarro(' ')}" ajax = "true" update = ":carregaConteudoCon"/>
 					<p:menuitem value = "Alterar Dados Carro" url = "alterarDadosCarro.xhtml"/>
 				</p:submenu>
 				
@@ -41,9 +42,14 @@
 				</p:submenu>
 				
 				<p:submenu label = "Informações Veículo">
-					<p:menuitem value = "Informações Carro" url = "buscarCarro.xhtml"/>
+					<p:menuitem value = "Informações Carro" action = "#{carregarPaginaMB.changePageBuscarCarro(' ')}" ajax = "true" update = ":carregaConteudoCon"/>
 					<p:menuitem value = "Informações Moto" url = "buscarMoto.xhtml"/>
 				</p:submenu>				
+				
+				<p:submenu label = "Pesquisar por característica">
+					<p:menuitem value = "Carros" />
+					<p:menuitem value = "Motos" /> 
+				</p:submenu>
 			</p:panelMenu>
 			</h:form>
 		</p:layoutUnit>
