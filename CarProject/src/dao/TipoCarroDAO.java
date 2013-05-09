@@ -22,6 +22,7 @@ public class TipoCarroDAO implements Serializable{
 		PreparedStatement ps = null;
 		List <TipoCarro> selectTipo = new ArrayList <TipoCarro>();
 		
+		
 		try{
 			c = ConnectionManager.open();
 			ps = c.prepareStatement("SELECT cod_tipo, nome from table_tipo_carros");

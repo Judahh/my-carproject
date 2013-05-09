@@ -8,7 +8,7 @@
 
 	<h:form id="formCadastroConcessionaria">
 		<p:panel id="panelConcessionaria" header="Cadastro da Concessionária"
-			style="width:450px;height:500px" align="center">
+			style="width:350px;height:400px" align="center">
 			
 			<p:messages id="messages" autoUpdate="true" closable="true" />
 	
@@ -135,7 +135,7 @@
 
 					<p:commandButton id="showDialogButton" value="Cadastrar"
 						update="formCadastroConcessionaria" process="@form"
-						action="#{concessionariaMB.inserir}" style="text-align:center" />
+						actionListener="#{concessionariaMB.inserir}" style="text-align:center" />
 
 
 					<p:confirmDialog id="confirmDialog" message="Concluir cadastro?"

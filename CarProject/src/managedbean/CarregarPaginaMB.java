@@ -33,4 +33,9 @@ public class CarregarPaginaMB implements Serializable{
 		System.out.println("Pagina carregada");
 		setPagina("cadastroCarro.xhtml");
 	}
+	
+	public void changePageBuscarCarro(String pagina){
+		System.out.println("Pagina carregada");
+		setPagina("buscarCarro.xhtml");
+	}
 }

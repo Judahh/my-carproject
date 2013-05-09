@@ -3,9 +3,15 @@ package dao;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import beans.CapacidadeLitros;
 import beans.Carro;
+import beans.Combustivel;
+import beans.TipoCarro;
 
 
 public class CarroDAO implements Serializable{
@@ -20,6 +26,7 @@ public class CarroDAO implements Serializable{
 		
 		Connection c = null;
 		PreparedStatement ps = null;
+		
 		try{
 			c = ConnectionManager.open();
 			
@@ -84,6 +91,80 @@ public class CarroDAO implements Serializable{
 		
 		return cadastro_fail;
 		}
-	
+
+	public List <Carro> getBuscar(){
+		
+		Connection c = null;
+		PreparedStatement ps = null;
+		List <Carro> selectCarros = new ArrayList <Carro>();
+		Carro ca = new Carro();
+		
+		try{
+			c = ConnectionManager.open();
+			ps = c.prepareStatement("SELECT * FROM table_carros WHERE modelo = '" + ca.getModelo() + "'");
+			
+			ResultSet rs = ps.executeQuery();		
+			
+			while(rs.next()){
+				
+				Carro carro = new Carro();
+				TipoCarro tp = new TipoCarro();
+				CapacidadeLitros cp = new CapacidadeLitros();
+				Combustivel com = new Combustivel();
+				
+				cp.setCapacidadeLitros(rs.getString("capacidade_litros"));
+				tp.setNome(rs.getString("tipo"));
+				com.setCombustivel(rs.getString("combustivel"));
+				
+				
+				carro.setPrecoTabelado(rs.getBigDecimal("preco_tabelado"));
+				carro.setMarca(rs.getString("marca"));
+				carro.setModelo(rs.getString("modelo"));
+				carro.setTipo(tp);
+				carro.setPotencia(rs.getDouble("potencia"));
+				carro.setCapacidadeLitros(cp);
+				carro.setTipoTracao(rs.getString("tipo_tracao"));
+				carro.setPosicaoMotor(rs.getString("posicao_motor"));
+				carro.setCombustivel(com);
+				carro.setAutonomiaKM(rs.getDouble("autonomia_km"));
+				carro.setKmCidade(rs.getDouble("km_cidade"));
+				carro.setKmEstrada(rs.getDouble("km_estrada"));
+				carro.setNumAssentos(rs.getInt("num_assentos"));
+				carro.setVolumeBagageiro(rs.getDouble("volume_bagageiro"));
+				carro.setVolumeTanque(rs.getDouble("volume_tanque"));
+				carro.setQntPortas(rs.getInt("qnt_portas"));
+				carro.setAreaCega(rs.getDouble("area_cega"));
+				carro.setAceleracao(rs.getDouble("aceleracao"));
+				carro.setVelocidadeMax(rs.getInt("velocidade_max"));
+				carro.setAno(rs.getDate("ano"));
+				
+				selectCarros.add(carro);
+			}
+			
+			rs.close();
+			c.close();
+			
+		}catch(SQLException ex){
+			System.out.println("Erro ao cadastrar");
+			ex.printStackTrace();
+			
+		}catch(ClassNotFoundException cn){
+			System.out.println("ClassNotFound...");
+			cn.printStackTrace();
+			
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+				
+				if (c != null)
+					c.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return selectCarros;				
 	}
+	
+}
 	
