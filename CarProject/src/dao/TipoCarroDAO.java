@@ -15,12 +15,12 @@ public class TipoCarroDAO implements Serializable{
 	
 	private static final long serialVersionUID = -5397659604693380447L;
 	
-	List <TipoCarro> selectTipo = new ArrayList <TipoCarro>();
 	
 	public List <TipoCarro> getListar() {
 		
 		Connection c = null;
 		PreparedStatement ps = null;
+		List <TipoCarro> selectTipo = new ArrayList <TipoCarro>();
 		
 		try{
 			c = ConnectionManager.open();

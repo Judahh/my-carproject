@@ -40,4 +40,5 @@ public class CapLitrosMB implements Serializable{
 	public List<CapacidadeLitros> getCapacidades(){
 		return cpDAO.getListar();
 	}
+	
 }
