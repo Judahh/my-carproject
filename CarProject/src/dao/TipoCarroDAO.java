@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.TipoCarro;
+import entidade.TipoCarro;
+
 
 public class TipoCarroDAO implements Serializable{
 	

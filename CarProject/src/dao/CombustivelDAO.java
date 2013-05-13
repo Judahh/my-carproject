@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.Combustivel;
+import entidade.Combustivel;
+
 
 public class CombustivelDAO implements Serializable{
 

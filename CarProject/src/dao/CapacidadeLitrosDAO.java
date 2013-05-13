@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.CapacidadeLitros;
+import entidade.CapacidadeLitros;
+
 
 public class CapacidadeLitrosDAO implements Serializable{
 	

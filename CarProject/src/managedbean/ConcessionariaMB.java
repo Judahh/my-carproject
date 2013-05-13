@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import beans.Concessionaria;
 
 import dao.ConcessionariaDAO;
+import entidade.Concessionaria;
 
 @ManagedBean
 @ViewScoped
@@ -25,8 +25,8 @@ public class ConcessionariaMB implements Serializable{
 	}
 	
 	public void inserir(){
-		System.out.println("Inserido (ok): " + concessionaria.toString());
 		concessionariaDAO.inserirConcessionaria( concessionaria );
+		System.out.println("Inserido (ok): " + concessionaria.toString());
 	}
 	
 	public Concessionaria getConcessionaria(){
