@@ -6,12 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import dao.CarroDAO;
+import entidade.Carro;
 
-import beans.Carro;
 
 @ManagedBean
 @ViewScoped
-
 public class CarroMB implements Serializable{
 	
 	
@@ -26,13 +25,13 @@ public class CarroMB implements Serializable{
 	}
 	
 	public void inserir(){
-		System.out.println("Inserido (ok): " + carro.toString());
 		carroDAO.inserirCarro( carro );
+		System.out.println("Inserido (ok): " + carro.toString());
 	}
 	
 	public void buscar(){
+		carroDAO.buscar(carro);	
 		System.out.println("Busca (ok): " + carro.toString());
-		carroDAO.getBuscar();		
 	}
 	
 	public Carro getCarro(){
@@ -42,4 +41,5 @@ public class CarroMB implements Serializable{
 	public void setCarro(Carro carro){
 		this.carro = carro;
 	}
+	
 }

@@ -3,11 +3,10 @@ package managedbean;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@ViewScoped
-
+@RequestScoped
 
 public class CarregarPaginaMB implements Serializable{
 	
@@ -24,17 +23,17 @@ public class CarregarPaginaMB implements Serializable{
 		this.pagina = pagina;
 	}
 	
-	public void changePageConcessionaria(String pagina){
+	public void changePageConcessionaria(){
 		System.out.println("Pagina carregada");
 		setPagina("cadastroConcessionaria.xhtml");
 	}
 	
-	public void changePageCarro(String pagina){
+	public void changePageCarro(){
 		System.out.println("Pagina carregada");
 		setPagina("cadastroCarro.xhtml");
 	}
 	
-	public void changePageBuscarCarro(String pagina){
+	public void changePageBuscarCarro(){
 		System.out.println("Pagina carregada");
 		setPagina("buscarCarro.xhtml");
 	}

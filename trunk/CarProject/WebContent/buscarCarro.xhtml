@@ -6,97 +6,101 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:form id="formBuscarCarro">
+<ui:composition template="./template.xhtml">
+	<ui:define name="content">
 	
-	<p:panel id="panelBuscarCarro" header="Buscar Carro"
-		style="width:450px;height: 80px" align="center">
-		
-		<p:messages id="messages" autoUpdate="true" closable="true" />
-		
-		<p:panelGrid columns="3">
-			<p:row>
-				<p:column>
-					<h:outputLabel value="Digite o modelo do carro: " for="modelo"
-						style="text-align:center" />
-					<h:inputText id="modelo" value="#{carroMB.carro.modelo}"
-						style="text-transform:uppercase" size="20" required="true"
-						label="modelo" />
-					<p:commandButton value="Buscar" update = "panelBuscarCarro, display" id = "buscar" actionLisener="#{carroMB.buscar}" />
-				</p:column>
-			</p:row>
-		</p:panelGrid>	
-	</p:panel>
-	
-	<p:panel id = "display" header = "Informações">
-		
-		<p:panelGrid columns="2">
-			
-			<h:outputText value = "Código Carro: "/>
-			<h:outputText value = "#{carroMB.carro.codCarro}"/>
-			
-			<h:outputText value = "Preço Tabela: "/>
-			<h:outputText value = "#{carroMB.carro.precoTabelado}"/>
-			
-			<h:outputText value = "Marca: "/>
-			<h:outputText value = "#{carroMB.carro.marca}"/>
-			
-			<h:outputText value = "Modelo: "/>
-			<h:outputText value = "#{carroMB.carro.modelo}"/>
-			
-			<h:outputText value = "Tipo: "/>
-			<h:outputText value = "#{carroMB.carro.tipo}"/>
-			
-			<h:outputText value = "Potência: "/>
-			<h:outputText value = "#{carroMB.carro.potencia}"/>
-			
-			<h:outputText value = "Capacidade em Litrs: "/>
-			<h:outputText value = "#{carroMB.carro.capacidadeLitros}"/>
-			
-			<h:outputText value = "Tipo de Tração: "/>
-			<h:outputText value = "#{carroMB.carro.tipoTracao}"/>
-			
-			<h:outputText value = "Posição do Motor: "/>
-			<h:outputText value = "#{carroMB.carro.posicaoMotor}"/>
-			
-			<h:outputText value = "Tipo de combustível: "/>
-			<h:outputText value = "#{carroMB.carro.combustivel}"/>
-			
-			<h:outputText value = "Autonomia em KM: "/>
-			<h:outputText value = "#{carroMB.carro.autonomiaKM}"/>
-			
-			<h:outputText value = "Autonomia Média em KM (cidade): "/>
-			<h:outputText value = "#{carroMB.carro.kmCidade}"/>
-			
-			<h:outputText value = "Autonomia Média em KM (estrada) "/>
-			<h:outputText value = "#{carroMB.carro.kmEstrada}"/>
-			
-			<h:outputText value = "Número de Assentos: "/>
-			<h:outputText value = "#{carroMB.carro.numAssentos}"/>
-			
-			<h:outputText value = "Volume do Bagageiro (em litros): "/>
-			<h:outputText value = "#{carroMB.carro.volumeBagageiro}"/>
-			
-			<h:outputText value = "Volume do Tanque (em litros): "/>
-			<h:outputText value = "#{carroMB.carro.volumeTanque}"/>
-			
-			<h:outputText value = "Quantidade de portas: "/>
-			<h:outputText value = "#{carroMB.carro.qntPortas}"/>
-			
-			<h:outputText value = "Área Cega do carro: "/>
-			<h:outputText value = "#{carroMB.carro.areaCega}"/>
-			
-			<h:outputText value = "Velocidade Máxima (KM/h): "/>
-			<h:outputText value = "#{carroMB.carro.velocidadeMax}"/>
-			
-			<h:outputText value = "Ano Fabricação: "/>
-			<h:outputText value = "#{carroMB.carro.ano}"/>
-						
-		</p:panelGrid> 
-	</p:panel>
-	
-	
-</h:form>
+		<h:form id="formBuscarCarro">
+			<p:panel id="panelBuscarCarro" header="Buscar Carro"
+				style="width:450px;height: 140px" align="center">
 
+				<p:messages id="messages" autoUpdate="true" closable="true" />
 
+				<p:panelGrid columns="3">
+					<p:row>
+						<p:column>
+							<h:outputLabel value="Digite o código do carro: " for="codCarro"
+								style="text-align:center" />
+							<h:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
+								style="text-transform:uppercase" size="20" required="true"
+								label="modelo" />
+							<p:commandButton value="Buscar" process="@form"
+								update="formBuscarCarro :display" id="buscar"
+								action="#{carroMB.buscar()}" />
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
 
+		<p:panel id="display" header="Informações">
+
+			<p:panelGrid columns="4">
+
+				<h:outputText value="Código Carro: " />
+				<h:outputText value="#{carroMB.carro.codCarro}" />
+
+				<h:outputText value="Preço Tabela: " />
+				<h:outputText value="#{carroMB.carro.precoTabelado}" />
+
+				<h:outputText value="Marca: " />
+				<h:outputText value="#{carroMB.carro.marca}" />
+
+				<h:outputText value="Modelo: " />
+				<h:outputText value="#{carroMB.carro.modelo}" />
+
+				<h:outputText value="Tipo: " />
+				<h:outputText value="#{carroMB.carro.tipo}" />
+
+				<h:outputText value="Potência: " />
+				<h:outputText value="#{carroMB.carro.potencia}" />
+
+				<h:outputText value="Capacidade em Litros: " />
+				<h:outputText value="#{carroMB.carro.capacidadeLitros}" />
+
+				<h:outputText value="Tipo de Tração: " />
+				<h:outputText value="#{carroMB.carro.tipoTracao}" />
+
+				<h:outputText value="Posição do Motor: " />
+				<h:outputText value="#{carroMB.carro.posicaoMotor}" />
+
+				<h:outputText value="Tipo de combustível: " />
+				<h:outputText value="#{carroMB.carro.combustivel}" />
+
+				<h:outputText value="Autonomia em KM: " />
+				<h:outputText value="#{carroMB.carro.autonomiaKM}" />
+
+				<h:outputText value="Autonomia Média em KM (cidade): " />
+				<h:outputText value="#{carroMB.carro.kmCidade}" />
+
+				<h:outputText value="Autonomia Média em KM (estrada) " />
+				<h:outputText value="#{carroMB.carro.kmEstrada}" />
+
+				<h:outputText value="Número de Assentos: " />
+				<h:outputText value="#{carroMB.carro.numAssentos}" />
+
+				<h:outputText value="Volume do Bagageiro (em litros): " />
+				<h:outputText value="#{carroMB.carro.volumeBagageiro}" />
+
+				<h:outputText value="Volume do Tanque (em litros): " />
+				<h:outputText value="#{carroMB.carro.volumeTanque}" />
+
+				<h:outputText value="Quantidade de portas: " />
+				<h:outputText value="#{carroMB.carro.qntPortas}" />
+
+				<h:outputText value="Área Cega do carro: " />
+				<h:outputText value="#{carroMB.carro.areaCega}" />
+
+				<h:outputText value="Velocidade Máxima (KM/h): " />
+				<h:outputText value="#{carroMB.carro.velocidadeMax}" />
+				
+				<h:outputText value = "Aceleração (0-100/s)"/>
+				<h:outputText value = "#{carroMB.carro.aceleracao}"/>
+				
+				<h:outputText value="Ano Fabricação: " />
+				<h:outputText value="#{carroMB.carro.ano}" />
+
+			</p:panelGrid>
+		</p:panel>
+	</ui:define>
+</ui:composition>
 </html>

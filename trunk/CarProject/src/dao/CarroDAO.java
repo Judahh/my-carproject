@@ -5,44 +5,39 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import beans.CapacidadeLitros;
-import beans.Carro;
-import beans.Combustivel;
-import beans.TipoCarro;
+import entidade.CapacidadeLitros;
+import entidade.Carro;
+import entidade.Combustivel;
+import entidade.TipoCarro;
 
+public class CarroDAO implements Serializable {
 
-public class CarroDAO implements Serializable{
-
-	
 	private static final long serialVersionUID = 9101854494025273093L;
-	
+
 	public String inserirCarro(Carro ca) {
-		
+
 		String cadastro_ok = "CADASTRO_EFETUADO";
 		String cadastro_fail = "FALHA_CADASTRO";
-		
+
 		Connection c = null;
 		PreparedStatement ps = null;
-		
-		try{
+		System.out.println("0");
+
+		try {
 			c = ConnectionManager.open();
-			
-			
-			
-			System.out.println("1");
-			
-			StringBuilder sb = new StringBuilder("INSERT INTO table_carros (cod_carro, preco_tabelado, marca, modelo, ");
+
+			System.out.println("Entrou");
+
+			StringBuilder sb = new StringBuilder(
+					"INSERT INTO table_carros (cod_carro, preco_tabelado, marca, modelo, ");
 			sb.append("tipo, potencia, capacidade_litros, tipo_tracao, posicao_motor, combustivel, autonomia_km, km_cidade, km_estrada, ");
 			sb.append("num_assentos, volume_bagageiro, volume_tanque, qnt_portas, area_cega, aceleracao, velocidade_max, ano) VALUES ( ");
 			sb.append("? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ? ) ");
-			
-			System.out.println("2");
-			ps = c.prepareStatement( sb.toString() );
-			
-			ps.setInt(1 ,  ca.getCodCarro());
+
+			ps = c.prepareStatement(sb.toString());
+
+			ps.setInt(1, ca.getCodCarro());
 			ps.setBigDecimal(2, ca.getPrecoTabelado());
 			ps.setString(3, ca.getMarca().toUpperCase());
 			ps.setString(4, ca.getModelo().toUpperCase());
@@ -64,59 +59,58 @@ public class CarroDAO implements Serializable{
 			ps.setInt(20, ca.getVelocidadeMax());
 			ps.setDate(21, new java.sql.Date(ca.getAno().getTime()));
 			System.out.println("4");
-			
+
 			ps.execute();
-			System.out.println("5");
 			return cadastro_ok;
-			
-		}catch(SQLException ex){
+
+		} catch (SQLException ex) {
 			System.out.println("Erro ao cadastrar");
 			ex.printStackTrace();
-			
-		}catch(ClassNotFoundException cn){
+
+		} catch (ClassNotFoundException cn) {
 			System.out.println("ClassNotFound...");
 			cn.printStackTrace();
-			
+
 		} finally {
 			try {
 				if (ps != null)
 					ps.close();
-				
+
 				if (c != null)
 					c.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
-		return cadastro_fail;
-		}
 
-	public List <Carro> getBuscar(){
-		
+		return cadastro_fail;
+	}
+
+	public Carro buscar(Carro ca) {
+
 		Connection c = null;
 		PreparedStatement ps = null;
-		List <Carro> selectCarros = new ArrayList <Carro>();
-		Carro ca = new Carro();
-		
-		try{
+		// List <Carro> selectCarros = new ArrayList <Carro>();
+
+		try {
 			c = ConnectionManager.open();
-			ps = c.prepareStatement("SELECT * FROM table_carros WHERE modelo = '" + ca.getModelo() + "'");
+			ps = c.prepareStatement("SELECT * FROM table_carros WHERE cod_carro = ?");
 			
-			ResultSet rs = ps.executeQuery();		
-			
-			while(rs.next()){
-				
+			ps.setInt(1, ca.getCodCarro());
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
 				Carro carro = new Carro();
 				TipoCarro tp = new TipoCarro();
 				CapacidadeLitros cp = new CapacidadeLitros();
 				Combustivel com = new Combustivel();
-				
+
 				cp.setCapacidadeLitros(rs.getString("capacidade_litros"));
 				tp.setNome(rs.getString("tipo"));
 				com.setCombustivel(rs.getString("combustivel"));
 				
-				
+				carro.setCodCarro(rs.getInt("cod_carro"));
 				carro.setPrecoTabelado(rs.getBigDecimal("preco_tabelado"));
 				carro.setMarca(rs.getString("marca"));
 				carro.setModelo(rs.getString("modelo"));
@@ -137,34 +131,33 @@ public class CarroDAO implements Serializable{
 				carro.setAceleracao(rs.getDouble("aceleracao"));
 				carro.setVelocidadeMax(rs.getInt("velocidade_max"));
 				carro.setAno(rs.getDate("ano"));
-				
-				selectCarros.add(carro);
+
+				return carro;
 			}
-			
+
 			rs.close();
 			c.close();
-			
-		}catch(SQLException ex){
-			System.out.println("Erro ao cadastrar");
+
+		} catch (SQLException ex) {
+			System.out.println("Erro ao buscar");
 			ex.printStackTrace();
-			
-		}catch(ClassNotFoundException cn){
+
+		} catch (ClassNotFoundException cn) {
 			System.out.println("ClassNotFound...");
 			cn.printStackTrace();
-			
+
 		} finally {
 			try {
 				if (ps != null)
 					ps.close();
-				
+
 				if (c != null)
 					c.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return selectCarros;				
+		return null;
 	}
-	
+
 }
-	
