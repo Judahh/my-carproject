@@ -6,8 +6,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import dao.CombustivelDAO;
-import entidade.Combustivel;
+import beans.Combustivel;
+
+import persistencia.CombustivelDAO;
+
 
 
 @ManagedBean

@@ -4,11 +4,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-
 <ui:composition template="./template.xhtml">
 	<ui:define name="content">
-	
-		<h:form id="formCadastroCarro" rendered = "true">
+
+		<h:form id="formCadastroCarro" prependId="false">
 			<p:panel id="panelCarro" header="Cadastro do Carro"
 				style="width:450px;height:740px" align="center" toggleable="true">
 
@@ -23,8 +22,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
-								size="20" required="true" label="códigoCarro">
-								<f:validateLength minimum="0" />
+								size="20" required="true" label="Código Carro">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -37,7 +35,7 @@
 						<p:column>
 							<p:inputText id="marca" value="#{carroMB.carro.marca}"
 								style="text-transform:uppercase" size="20" required="true"
-								label="marca">
+								label="Marca">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -50,7 +48,7 @@
 						<p:column>
 							<p:inputText id="modelo" value="#{carroMB.carro.modelo}"
 								style="text-transform:uppercase" size="20" required="true"
-								label="modelo">
+								label="Modelo">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -63,8 +61,7 @@
 						<p:column>
 							<p:inputText id="precoTabelado"
 								value="#{carroMB.carro.precoTabelado}" size="20" required="true"
-								label="precoTabelado">
-								<f:convertNumber pattern = "#,###.00"/>
+								label="Preco Tabelado" >
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -92,7 +89,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="potencia" value="#{carroMB.carro.potencia}"
-								size="20" required="true" label="potencia">
+								size="20" required="true" label="Potência">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -121,7 +118,7 @@
 						<p:column>
 							<p:inputText id="posicaoMotor"
 								value="#{carroMB.carro.posicaoMotor}" size="20" required="true"
-								label="posicaoMotor">
+								label="Posição Motor">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -150,7 +147,7 @@
 						<p:column>
 							<p:inputText id="autonomiaKM"
 								value="#{carroMB.carro.autonomiaKM}" size="20" required="true"
-								label="autonomiaKM">
+								label="Autonomia KM">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -162,7 +159,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="kmCidade" value="#{carroMB.carro.kmCidade}"
-								size="20" required="true" label="kmCidade">
+								size="20" required="true" label="KM Cidade">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -174,7 +171,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="kmEstrada" value="#{carroMB.carro.kmEstrada}"
-								size="20" required="true" label="kmEstrada">
+								size="20" required="true" label="KM Estrada">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -187,7 +184,7 @@
 						<p:column>
 							<p:inputText id="numAssentos"
 								value="#{carroMB.carro.numAssentos}" size="20" required="true"
-								label="numAssentos">
+								label="Número de Assentos">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -200,7 +197,7 @@
 						<p:column>
 							<p:inputText id="volumeBagageiro"
 								value="#{carroMB.carro.volumeBagageiro}" size="20"
-								required="true" label="volumeBagageiro">
+								required="true" label="Volume Bagageiro">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -225,7 +222,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="qntPortas" value="#{carroMB.carro.qntPortas}"
-								size="20" required="true" label="qntPortas">
+								size="20" required="true" label="Quantidade de Portas">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -237,7 +234,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="areaCega" value="#{carroMB.carro.areaCega}"
-								size="20" required="true" label="areaCega">
+								size="20" required="true" label="Área Cega">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -249,7 +246,7 @@
 						</p:column>
 						<p:column>
 							<p:inputText id="aceleracao" value="#{carroMB.carro.aceleracao}"
-								size="20" required="true" label="aceleracao">
+								size="20" required="true" label="Aceleração">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -262,7 +259,7 @@
 						<p:column>
 							<p:inputText id="velocidadeMax"
 								value="#{carroMB.carro.velocidadeMax}" size="20" required="true"
-								label="velocidadeMax">
+								label="Velocidade Max">
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -272,28 +269,27 @@
 							<h:outputLabel value="Ano: " for="ano" style="text-align:center" />
 						</p:column>
 						<p:column>
-							<p:inputText id="ano" value="#{carroMB.carro.ano}" size="20"
-								required="true" label="ano">
-							</p:inputText>
+							<p:calendar id="ano" value="#{carroMB.carro.ano}" size="20"
+								required="true" label="Ano" pattern = "dd/MM/yyyy" locale = "pt_BR"/>
 						</p:column>
-					</p:row>
+					</p:row> 
 
 					<p:row>
 						<p:column colspan="2" style="text-align: center;">
 
 							<p:commandButton id="showDialogButton" value="Cadastrar"
-								style="text-align:center"  update= "panelCarro" action="#{carroMB.inserir}" />
+								style="text-align:center" update="panelCarro"
+								action="#{carroMB.inserir()}" process="@form" />
 
 							<p:commandButton value="Limpar Campos" type="reset"
 								style="text-align:center" />
 
 						</p:column>
 					</p:row>
-					
+
 				</p:panelGrid>
 			</p:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>
-
 </html>

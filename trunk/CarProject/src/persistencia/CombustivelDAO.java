@@ -1,4 +1,4 @@
-package dao;
+package persistencia;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -8,35 +8,35 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import entidade.CapacidadeLitros;
+import beans.Combustivel;
 
 
-public class CapacidadeLitrosDAO implements Serializable{
+
+public class CombustivelDAO implements Serializable{
+
+
+	private static final long serialVersionUID = -4389423331774842273L;
 	
 	
-	private static final long serialVersionUID = 6409693878451339699L;
-	
-	
-	
-	public List <CapacidadeLitros> getListar(){
+	public List <Combustivel> getListar() {
 		
 		Connection c = null;
 		PreparedStatement ps = null;
-		List <CapacidadeLitros> selectLitro = new ArrayList <CapacidadeLitros>();
+		List <Combustivel> selectCombustivel = new ArrayList <Combustivel>();
 		
 		try{
 			c = ConnectionManager.open();
-			ps = c.prepareStatement("SELECT cod_cap, capacidade_litros from table_cap_litros");
-			
+			ps = c.prepareStatement("SELECT cod_combustivel, combustivel from table_combustivel");
+		
 			ResultSet rs;
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
-				CapacidadeLitros cl = new CapacidadeLitros();
-				cl.setCodCap(rs.getInt("cod_cap"));
-				cl.setCapacidadeLitros(rs.getString("capacidade_litros"));
+				Combustivel tp = new Combustivel();
+				tp.setCodCombustivel(rs.getInt("cod_combustivel"));
+				tp.setCombustivel(rs.getString("combustivel"));
 				
-				selectLitro.add(cl);
+				selectCombustivel.add(tp);
 			}
 			
 		}catch(SQLException ex){
@@ -58,9 +58,6 @@ public class CapacidadeLitrosDAO implements Serializable{
 				e.printStackTrace();
 			}
 		}
-			
-		
-		return selectLitro;
-		
+		return selectCombustivel;		
 	}
 }

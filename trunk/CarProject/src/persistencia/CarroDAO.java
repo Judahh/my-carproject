@@ -1,4 +1,4 @@
-package dao;
+package persistencia;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -6,16 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import entidade.CapacidadeLitros;
-import entidade.Carro;
-import entidade.Combustivel;
-import entidade.TipoCarro;
+import beans.CapacidadeLitros;
+import beans.Carro;
+import beans.Combustivel;
+import beans.TipoCarro;
+
 
 public class CarroDAO implements Serializable {
 
 	private static final long serialVersionUID = 9101854494025273093L;
 
-	public String inserirCarro(Carro ca) {
+	public String inserirCarro (Carro ca) {
 
 		String cadastro_ok = "CADASTRO_EFETUADO";
 		String cadastro_fail = "FALHA_CADASTRO";
@@ -29,8 +30,7 @@ public class CarroDAO implements Serializable {
 
 			System.out.println("Entrou");
 
-			StringBuilder sb = new StringBuilder(
-					"INSERT INTO table_carros (cod_carro, preco_tabelado, marca, modelo, ");
+			StringBuilder sb = new StringBuilder("INSERT INTO table_carros (cod_carro, preco_tabelado, marca, modelo, ");
 			sb.append("tipo, potencia, capacidade_litros, tipo_tracao, posicao_motor, combustivel, autonomia_km, km_cidade, km_estrada, ");
 			sb.append("num_assentos, volume_bagageiro, volume_tanque, qnt_portas, area_cega, aceleracao, velocidade_max, ano) VALUES ( ");
 			sb.append("? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ? ) ");

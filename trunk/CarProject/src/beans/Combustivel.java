@@ -1,4 +1,4 @@
-package entidade;
+package beans;
 
 import java.io.Serializable;
 

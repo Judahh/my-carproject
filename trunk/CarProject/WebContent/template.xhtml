@@ -12,18 +12,19 @@
 		media="screen" />
 </h:head>
 <h:body>
-	<div align="left">
-		<p:layout fullPage="true">
+	<!-- <div align="left"> -->
+		<p:layout fullPage="true" >
 
 			<p:layoutUnit position="north" size="100" header="Titulo Página"
 				resizable="false" closable="false" collapsible="true">
-				<font size="1"><h:outputText
-						value="Botar alguma imagem por aqui" /></font>
+				<h1><font size="1"><h:outputText
+						value="Título ou Imagem" /></font></h1>
 			</p:layoutUnit>
 
-			<p:layoutUnit position="south" size="70" header="Bottom"
-				resizable="false" closable="false" collapsible="true">
-				<h:outputText value="Aqui a gente bota algo de direitos autorais" />
+			<p:layoutUnit position="south" size="80" header="Bottom"
+				resizable="false" closable="false" collapsible="true" >
+				<h:outputText value="Direitos autorais" /><br></br>
+				<h1><font size="1"><h:outputText value = "#{templateMB.data()}"/></font></h1>
 			</p:layoutUnit>
 
 			<p:layoutUnit position="west" size="200"
@@ -36,14 +37,16 @@
 							<p:submenu label="Painel Concessionária">
 								<p:menuitem id="cadastroConcessionaria"
 									value="Cadastrar Concessionária" ajax="false"
-									url="/cadastroConcessionaria.jsf" />
-								<p:menuitem value="Alterar Dados Concessionária"
-									url="alterarDadosConcessionaria.xhtml" />
+									url="/cadastroConcessionaria.jsf"
+									action="#{cadastroController.iniciarTelaConcessionaria}" />
+								<p:menuitem value="Alterar Dados Concessionária" ajax ="false"
+									url="/alterarDadosConcessionaria.jsf" />
 							</p:submenu>
 
 							<p:submenu label="Painel Carros">
 								<p:menuitem id="cadastroCarro" value="Cadastrar Carros"
-									ajax="false" url="/cadastroCarro.jsf" />
+									ajax="false" url="/cadastroCarroNew.jsf"
+									action="#{cadastroController.iniciarTelaCarro}" />
 								<p:menuitem value="Alterar Dados Carro"
 									url="alterarDadosCarro.xhtml" />
 							</p:submenu>
@@ -72,7 +75,7 @@
 			<p:layoutUnit position="east" size="200" header="Links Afiliados"
 				resizable="false" closable="false" collapsible="true">
 				<font size="1"><h:outputText
-						value="Aqui bota links das concessionarias" /></font>
+						value="links sites das concessionarias" /></font>
 			</p:layoutUnit>
 
 			<p:layoutUnit position="center">
@@ -80,6 +83,6 @@
 			</p:layoutUnit>
 
 		</p:layout>
-	</div>
+	<!-- </div> -->
 </h:body>
 </html>
