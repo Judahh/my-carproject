@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="./template.xhtml">
+	<ui:define name="content">
+
+		<h:form id="formAlteraCon" prependId="false">
+			<p:messages id="messsages" autoUpdate="true" closable="true" />
+
+			<p:panel id="panelBuscarConcessionaria"
+				header="Alterar dados da concessionária"
+				style="width:450px; height:740px" align="center">
+
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+
+				<p:panelGrid columns="3">
+					<h:outputLabel value="Digite o código da concessionaria: "
+						for="codConcessionaria" style="text--align:center" />
+					<h:inputText id="codConcessionaria"
+						value="#{concessionariaMB.concessionaria.codConcessionaria} "
+						required="true" />
+
+					<p:commandButton value="Buscar" process="@form"
+						update="formAlteraCon :display" id="buscar"
+						action="#{concessionariaMB.buscar()}" />
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+		
+		<p:panel id="display" header="Informações">
+
+		</p:panel>
+
+
+	</ui:define>
+</ui:composition>
+
+
+</html>

@@ -1,12 +1,11 @@
-package dao;
+package persistencia;
 
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import entidade.Concessionaria;
-
+import beans.Concessionaria;
 
 
 public class ConcessionariaDAO implements Serializable{
@@ -18,7 +17,7 @@ public class ConcessionariaDAO implements Serializable{
 		
 		String cadastro_ok = "CADASTRO_EFETUADO";
 		String cadastro_fail = "FALHA_CADASTRO";
-		
+						
 		Connection c = null;
 		PreparedStatement ps = null;
 		

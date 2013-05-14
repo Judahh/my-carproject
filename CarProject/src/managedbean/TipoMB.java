@@ -6,8 +6,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import dao.TipoCarroDAO;
-import entidade.TipoCarro;
+import beans.TipoCarro;
+
+import persistencia.TipoCarroDAO;
+
 
 @ManagedBean
 @ViewScoped

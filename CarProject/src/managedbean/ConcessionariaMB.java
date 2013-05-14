@@ -5,9 +5,10 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import beans.Concessionaria;
 
-import dao.ConcessionariaDAO;
-import entidade.Concessionaria;
+import persistencia.ConcessionariaDAO;
+
 
 @ManagedBean
 @ViewScoped
@@ -29,6 +30,9 @@ public class ConcessionariaMB implements Serializable{
 		System.out.println("Inserido (ok): " + concessionaria.toString());
 	}
 	
+	public void buscar(){
+		
+	}
 	public Concessionaria getConcessionaria(){
 		return concessionaria;
 	}

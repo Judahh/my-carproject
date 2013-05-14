@@ -6,8 +6,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import dao.CapacidadeLitrosDAO;
-import entidade.CapacidadeLitros;
+import beans.CapacidadeLitros;
+
+import persistencia.CapacidadeLitrosDAO;
+
 
 @ManagedBean
 @ViewScoped

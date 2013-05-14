@@ -1,5 +1,6 @@
-package entidade;
+package beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +9,15 @@ import java.sql.SQLException;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
-import dao.ConnectionManager;
+import persistencia.ConnectionManager;
+
 
 @ManagedBean
 @ViewScoped
 
-public class UsuarioBean implements Serializable{
+public class LoginUsuarioBean implements Serializable{
 	
 	/**
 	 * 
@@ -41,7 +44,7 @@ public class UsuarioBean implements Serializable{
 		Connection c = null;
 		PreparedStatement ps = null;
 		
-		String result_login = "LOGIN_EFETUADO";
+		//String result_login = "LOGIN_EFETUADO";
 		String result_loginInvalido = "LOGIN_INVALIDO";
 		
 		try{
@@ -59,7 +62,13 @@ public class UsuarioBean implements Serializable{
 			rs.getString(1);
 			rs.getString(2);
 			
-			return result_login;
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("indexAdmin.jsf");
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return "";
 			
 		} catch(SQLException ex){
 			System.out.println("Erro ao recuperar login/senha");

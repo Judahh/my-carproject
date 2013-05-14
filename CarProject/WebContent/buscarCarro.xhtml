@@ -8,7 +8,7 @@
 
 <ui:composition template="./template.xhtml">
 	<ui:define name="content">
-	
+
 		<h:form id="formBuscarCarro">
 			<p:panel id="panelBuscarCarro" header="Buscar Carro"
 				style="width:450px;height: 140px" align="center">
@@ -16,18 +16,15 @@
 				<p:messages id="messages" autoUpdate="true" closable="true" />
 
 				<p:panelGrid columns="3">
-					<p:row>
-						<p:column>
-							<h:outputLabel value="Digite o código do carro: " for="codCarro"
-								style="text-align:center" />
-							<h:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
-								style="text-transform:uppercase" size="20" required="true"
-								label="modelo" />
-							<p:commandButton value="Buscar" process="@form"
-								update="formBuscarCarro :display" id="buscar"
-								action="#{carroMB.buscar()}" />
-						</p:column>
-					</p:row>
+
+					<h:outputLabel value="Digite o código do carro: " for="codCarro"
+						style="text-align:center" />
+					<h:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
+						size="20" required="true" label="codCarro" />
+					<p:commandButton value="Buscar" process="@form"
+						update="formBuscarCarro :display" id="buscar"
+						action="#{carroMB.buscar()}" />
+
 				</p:panelGrid>
 			</p:panel>
 		</h:form>
@@ -92,10 +89,10 @@
 
 				<h:outputText value="Velocidade Máxima (KM/h): " />
 				<h:outputText value="#{carroMB.carro.velocidadeMax}" />
-				
-				<h:outputText value = "Aceleração (0-100/s)"/>
-				<h:outputText value = "#{carroMB.carro.aceleracao}"/>
-				
+
+				<h:outputText value="Aceleração (0-100/s)" />
+				<h:outputText value="#{carroMB.carro.aceleracao}" />
+
 				<h:outputText value="Ano Fabricação: " />
 				<h:outputText value="#{carroMB.carro.ano}" />
 

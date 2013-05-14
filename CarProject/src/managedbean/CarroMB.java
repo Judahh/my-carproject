@@ -5,8 +5,9 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import dao.CarroDAO;
-import entidade.Carro;
+import beans.Carro;
+
+import persistencia.CarroDAO;
 
 
 @ManagedBean
@@ -25,6 +26,7 @@ public class CarroMB implements Serializable{
 	}
 	
 	public void inserir(){
+		System.out.println("TESTE");
 		carroDAO.inserirCarro( carro );
 		System.out.println("Inserido (ok): " + carro.toString());
 	}

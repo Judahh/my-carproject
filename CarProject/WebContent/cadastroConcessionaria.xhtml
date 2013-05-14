@@ -26,7 +26,7 @@
 							<p:inputText id="codConcessionaria"
 								value="#{concessionariaMB.concessionaria.codConcessionaria}"
 								size="20" required="true" label="Código da Empresa">
-								<f:validateLength minimum="2" />
+								<f:validateLength minimum="0" />
 							</p:inputText>
 						</p:column>
 					</p:row>
@@ -39,7 +39,7 @@
 						<p:column>
 							<p:inputText id="nomeConcessionaria"
 								value="#{concessionariaMB.concessionaria.nomeConcessionaria}"
-								size="20" required="true" label="Nome da empresa" />
+								size="20" required="true" label="Nome da empresa" validator = "#{cadastroController.validarEspacoBranco}" />
 						</p:column>
 					</p:row>
 
@@ -50,7 +50,7 @@
 						<p:column>
 							<p:inputMask id="cnpj"
 								value="#{concessionariaMB.concessionaria.cnpj}" size="20"
-								required="true" label="cnpj" mask="999.999.999-99" />
+								required="true" label="CNPJ" mask="999.999.999-99" validator = "#{cadastroController.validarEspacoBranco}"/>
 						</p:column>
 					</p:row>
 
@@ -62,7 +62,7 @@
 						<p:column>
 							<p:inputText id="endereco"
 								value="#{concessionariaMB.concessionaria.endereco}" size="20"
-								required="true" label="Endereco" />
+								required="true" label="Endereco" validator = "#{cadastroController.validarEspacoBranco}" />
 						</p:column>
 					</p:row>
 
@@ -74,7 +74,7 @@
 						<p:column>
 							<p:inputText id="bairro"
 								value="#{concessionariaMB.concessionaria.bairro}"
-								styleClass="edit" size="20" required="true" label="Bairro" />
+								styleClass="edit" size="20" required="true" label="Bairro" validator = "#{cadastroController.validarEspacoBranco}"/>
 						</p:column>
 					</p:row>
 
@@ -86,7 +86,7 @@
 						<p:column>
 							<p:inputText id="referencia"
 								value="#{concessionariaMB.concessionaria.referencia}" size="20"
-								required="false" label="Referência" />
+								required="false" label="Referência" validator = "#{cadastroController.validarEspacoBranco}"/>
 						</p:column>
 					</p:row>
 
@@ -98,7 +98,7 @@
 						<p:column>
 							<p:inputText id="enderecoWEB"
 								value="#{concessionariaMB.concessionaria.enderecoWEB}" size="20"
-								required="false" label="Endereco Web" />
+								required="false" label="Endereco Web" validator = "#{cadastroController.validarEspacoBranco}" />
 						</p:column>
 					</p:row>
 
@@ -110,7 +110,7 @@
 						<p:column>
 							<p:inputText id="email"
 								value="#{concessionariaMB.concessionaria.email}" size="20"
-								required="false" label="Email" />
+								required="false" label="Email" validator = "#{cadastroController.validarEspacoBranco}"/>
 						</p:column>
 					</p:row>
 
@@ -122,7 +122,7 @@
 						<p:column>
 							<p:inputMask id="telefone"
 								value="#{concessionariaMB.concessionaria.telefone}" size="20"
-								required="true" label="Telefone" mask="(99) 9999-9999" />
+								required="true" label="Telefone" mask="(99) 9999-9999" validator = "#{cadastroController.validarEspacoBranco}"/>
 						</p:column>
 					</p:row>
 
@@ -134,7 +134,7 @@
 						<p:column>
 							<p:inputMask id="telefone2"
 								value="#{concessionariaMB.concessionaria.telefone2}" size="20"
-								required="false" label="Telefone Opcional" mask="(99) 9999-9999" />
+								required="false" label="Telefone Opcional" mask="(99) 9999-9999" validator = "#{cadastroController.validarEspacoBranco}" />
 						</p:column>
 					</p:row>
 
@@ -149,7 +149,7 @@
 
 							<p:commandButton id="showDialogButton" value="Cadastrar"
 								style="text-align:center" update="panelConcessionaria"
-								action="#{concessionariaMB.inserir}" />
+								action="#{concessionariaMB.inserir()}" />
 
 							<p:commandButton value="Limpar Campos" type="reset"
 								style="text-align:center" />
