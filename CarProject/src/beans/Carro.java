@@ -27,7 +27,7 @@ public class Carro implements Serializable{
 	private String modelo;
 	private TipoCarro tipo;
 	private Double potencia;
-	private CapacidadeLitros capacidadeLitros;
+	private Litros capacidadeLitros;
 	private String tipoTracao;
 	private String posicaoMotor;
 	private Combustivel combustivel;
@@ -79,10 +79,10 @@ public class Carro implements Serializable{
 	public void setPotencia(Double potencia) {
 		this.potencia = potencia;
 	}
-	public CapacidadeLitros getCapacidadeLitros() {
+	public Litros getCapacidadeLitros() {
 		return capacidadeLitros;
 	}
-	public void setCapacidadeLitros(CapacidadeLitros capacidadeLitros) {
+	public void setCapacidadeLitros(Litros capacidadeLitros) {
 		this.capacidadeLitros = capacidadeLitros;
 	}
 	public String getTipoTracao() {

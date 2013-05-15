@@ -1,7 +1,6 @@
 package managedbean;
 
 import java.io.Serializable;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -31,7 +30,8 @@ public class ConcessionariaMB implements Serializable{
 	}
 	
 	public void buscar(){
-		
+		concessionaria = concessionariaDAO.buscar (concessionaria);
+		System.out.println("Busca (ok): " +concessionaria.toString());
 	}
 	public Concessionaria getConcessionaria(){
 		return concessionaria;

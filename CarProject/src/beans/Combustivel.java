@@ -28,7 +28,29 @@ public class Combustivel implements Serializable{
 		return "Combustivel [codCombustivel=" + codCombustivel
 				+ ", combustivel=" + combustivel + "]";
 	}
-	
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((codCombustivel == null) ? 0 : codCombustivel.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Combustivel other = (Combustivel) obj;
+		if (codCombustivel == null) {
+			if (other.codCombustivel != null)
+				return false;
+		} else if (!codCombustivel.equals(other.codCombustivel))
+			return false;
+		return true;
+	}
 	
 }

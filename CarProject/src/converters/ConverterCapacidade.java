@@ -7,33 +7,38 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import beans.TipoCarro;
+import beans.Litros;
 
-@FacesConverter(forClass = TipoCarro.class)
-public class ConverterTipo implements Converter, Serializable{
+@FacesConverter(forClass = Litros.class)
+public class ConverterCapacidade implements Converter, Serializable {
 
-	private static final long serialVersionUID = 4662226629211015178L;
+	
+	private static final long serialVersionUID = -4519523355969187548L;
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
 		
 		if(arg2 != null && !arg2.trim().isEmpty()){
-			TipoCarro tipo = new TipoCarro();
-			tipo.setCodTipo(Integer.parseInt(arg2));
-			return tipo;
+			Litros capLitros = new Litros();
+			capLitros.setCodCap(Integer.parseInt(arg2));
+			return capLitros;
 		}
 		return null;
 	}
 
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object arg2) {
-		if(arg2 != null && arg2 instanceof TipoCarro){
-			TipoCarro tipo = (TipoCarro) arg2;
-			if(tipo.getCodTipo() != null){
-				return tipo.getCodTipo().toString();
+		if(arg2 != null && arg2 instanceof Litros){
+			Litros capLitros = (Litros) arg2;
+			if(capLitros.getCodCap() != null){
+				return capLitros.getCodCap().toString();
 			}
 		}
+		
 		return null;
 	}
-
+	
+	
+	
+	
 }

@@ -9,165 +9,238 @@
 
 		<h:form id="formCadastroCarro" prependId="false">
 			<p:panel id="panelCarro" header="Cadastro do Carro"
-				style="width:850px;height:440px" align="center" toggleable="true">
+				style="height:440px" align="center" toggleable="true">
 
 				<p:messages id="messages" autoUpdate="true" closable="true" />
 
-				<p:panelGrid style="text-align: left" columns="4">
+				<p:panelGrid style="text-align: left">
 
-					<h:outputLabel value="Código Carro: " for="codCarro"
-						style="text-align:center" />
-					<p:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
-						size="20" required="true" label="Código Carro">
-					</p:inputText>
+					<p:row id="identificacaoCarro">
+						<p:column>
+							<h:outputLabel value="Código Carro: " for="codCarro"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
+								size="33" required="true" label="Código Carro" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Marca: " for="marca"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="marca" value="#{carroMB.carro.marca}"
+								style="text-transform:uppercase" size="33" required="true"
+								label="Marca" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Modelo: " for="modelo"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="modelo" value="#{carroMB.carro.modelo}"
+								style="text-transform:uppercase" size="33" required="true"
+								label="Modelo" />
+						</p:column>
+					</p:row>
 
-					<h:outputLabel value="Marca: " for="marca"
-						style="text-align:center" />
-					<p:inputText id="marca" value="#{carroMB.carro.marca}"
-						style="text-transform:uppercase" size="20" required="true"
-						label="Marca">
-					</p:inputText>
+					<p:row id="autonomia">
+						<p:column>
+							<h:outputLabel value="Autonomia (KM/L): " for="autonomiaKM"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="autonomiaKM"
+								value="#{carroMB.carro.autonomiaKM}" size="33" required="true"
+								label="Autonomia KM" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Autonomia (KM/L - cidade): " for="kmCidade"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="kmCidade" value="#{carroMB.carro.kmCidade}"
+								size="33" required="true" label="KM Cidade" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Autonomia (KM/L - estrada) "
+								for="kmEstrada" style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="kmEstrada" value="#{carroMB.carro.kmEstrada}"
+								size="33" required="true" label="KM Estrada" />
+						</p:column>
+					</p:row>
 
-					<h:outputLabel value="Modelo: " for="modelo"
-						style="text-align:center" />
-					<p:inputText id="modelo" value="#{carroMB.carro.modelo}"
-						style="text-transform:uppercase" size="20" required="true"
-						label="Modelo">
-					</p:inputText>
+					<p:row id="velocidadeAceleracaoPotencia">
+						<p:column>
+							<h:outputLabel value="Velocidade Máxima: " for="velocidadeMax"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="velocidadeMax"
+								value="#{carroMB.carro.velocidadeMax}" size="33" required="true"
+								label="Velocidade Max" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Aceleração (0-100/s): " for="aceleracao"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="aceleracao" value="#{carroMB.carro.aceleracao}"
+								size="33" required="true" label="Aceleração" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Potência (CV): " for="potencia"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="potencia" value="#{carroMB.carro.potencia}"
+								size="33" required="true" label="Potência" />
+						</p:column>
+					</p:row>
 
-					<h:outputLabel value="Preço Tabelado: " for="precoTabelado"
-						style="text-align:center" />
-					<p:inputText id="precoTabelado"
-						value="#{carroMB.carro.precoTabelado}" size="20" required="true"
-						label="Preco Tabelado">
-					</p:inputText>
+					<p:row id="detalhesPlus">
+						<p:column>
+							<h:outputLabel value="Número de assentos:" for="numAssentos"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="numAssentos"
+								value="#{carroMB.carro.numAssentos}" size="33" required="true"
+								label="Número de Assentos" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Quantidade de Portas:" for="qntPortas"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="qntPortas" value="#{carroMB.carro.qntPortas}"
+								size="33" required="true" label="Quantidade de Portas">
+							</p:inputText>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Área cega: " for="areaCega"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="areaCega" value="#{carroMB.carro.areaCega}"
+								size="33" required="true" label="Área Cega">
+							</p:inputText>
 
+						</p:column>
+					</p:row>
+					
+					<p:row id="selects">
+						<p:column>
+							<h:outputLabel value="Tipo: " for="tipo"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:selectOneMenu id="tipo" value="#{carroMB.carro.tipo}">
+								<f:selectItem itemLabel="Selecione o tipo de carro..." />
+								<f:selectItems value="#{tipoMB.tipos}" itemValue="#{tpCarro}"
+									itemLabel="#{tpCarro.nome}" var="tpCarro" />
+							</p:selectOneMenu>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Capacidade em litros: "
+								for="capacidadeLitros" style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:selectOneMenu id="capacidadeLitros"
+								value="#{carroMB.carro.capacidadeLitros}">
+								<f:selectItem itemLabel="Selecione a capacidade em litros..." />
+								<f:selectItems value="#{capLitrosMB.capacidades}"
+									itemValue="#{clitros}" itemLabel="#{clitros.capacidade}"
+									var="clitros" />
+							</p:selectOneMenu>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Combustivel: " for="combustivel"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:selectOneMenu id="combustivel"
+								value="#{carroMB.carro.combustivel}">
+								<f:selectItem itemLabel="Selecione tipo de combustível..." />
+								<f:selectItems value="#{combustivelMB.combustiveis}"
+									itemValue="#{comb}" itemLabel="#{comb.combustivel}" var="comb" />
+							</p:selectOneMenu>
+						</p:column>
+					</p:row>
 
-					<h:outputLabel value="Tipo: " for="tipo" style="text-align:center" />
+					<p:row id="volumes">
+						<p:column>
+							<h:outputLabel value="Volume Tanque: " for="volumeTanque"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="volumeTanque"
+								value="#{carroMB.carro.volumeTanque}" size="33" required="true"
+								label="volumeTanque" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Volume Bagageiro: " for="volumeBagageiro"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="volumeBagageiro"
+								value="#{carroMB.carro.volumeBagageiro}" size="33"
+								required="true" label="Volume Bagageiro" />
+						</p:column>
+					</p:row>
 
-					<p:selectOneMenu id="tipo">
-						<f:selectItem itemLabel="Selecione o tipo de carro..."
-							itemValue="#{carroMB.carro.tipo.getNome()}">	
-						</f:selectItem>	
-						<f:selectItems value="#{tipoMB.tipos}"
-							itemValue="#{tpCarro.codTipo}" itemLabel="#{tpCarro.nome}"
-							var="tpCarro"/>	
-					</p:selectOneMenu>
+					<p:row id="posicoes">
+						<p:column>
+							<h:outputLabel value="Posição do Motor: " for="posicaoMotor"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="posicaoMotor"
+								value="#{carroMB.carro.posicaoMotor}" size="33" required="true"
+								label="Posição Motor" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Tipo de Tração: " for="tipoTracao"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="tipoTracao" value="#{carroMB.carro.tipoTracao}"
+								size="33" required="true" label="Tipo Tração" />
+						</p:column>
+					</p:row>
 
-					<h:outputLabel value="Potência (CV): " for="potencia"
-						style="text-align:center" />
-
-					<p:inputText id="potencia" value="#{carroMB.carro.potencia}"
-						size="20" required="true" label="Potência">
-					</p:inputText>
-
-					<h:outputLabel value="Capacidade em litros: "
-						for="capacidadeLitros" style="text-align:center" />
-					<p:selectOneMenu id="capacidadeLitros">
-						<f:selectItem itemLabel="Selecione a capacidade em litros..."
-							itemValue="#{carroMB.carro.capacidadeLitros.getCapacidadeLitros()}"
-							size="40" />
-						<f:selectItems value="#{capLitrosMB.capacidades}"
-							itemValue="#{clitros.codCap}"
-							itemLabel="#{clitros.capacidadeLitros}" var="clitros" />
-					</p:selectOneMenu>
-
-					<h:outputLabel value="Posição do Motor: " for="posicaoMotor"
-						style="text-align:center" />
-					<p:inputText id="posicaoMotor"
-						value="#{carroMB.carro.posicaoMotor}" size="20" required="true"
-						label="Posição Motor">
-					</p:inputText>
-
-					<h:outputLabel value="Combustivel: " for="combustivel"
-						style="text-align:center" />
-					<p:selectOneMenu id="combustivel">
-						<f:selectItem itemLabel="Selecione o tipo de combustivel..."
-							itemValue="#{carroMB.carro.combustivel.getCombustivel()}" />
-						<f:selectItems value="#{combustivelMB.combustiveis}"
-							itemValue="#{comb.codCombustivel}"
-							itemLabel="#{comb.combustivel}" var="comb" />
-					</p:selectOneMenu>
-
-					<h:outputLabel value="Autonomia (KM/L): " for="autonomiaKM"
-						style="text-align:center" />
-					<p:inputText id="autonomiaKM" value="#{carroMB.carro.autonomiaKM}"
-						size="20" required="true" label="Autonomia KM">
-					</p:inputText>
-
-
-					<h:outputLabel value="Autonomia (KM/L - cidade): " for="kmCidade"
-						style="text-align:center" />
-					<p:inputText id="kmCidade" value="#{carroMB.carro.kmCidade}"
-						size="20" required="true" label="KM Cidade">
-					</p:inputText>
-
-					<h:outputLabel value="Autonomia (KM/L - estrada) " for="kmEstrada"
-						style="text-align:center" />
-					<p:inputText id="kmEstrada" value="#{carroMB.carro.kmEstrada}"
-						size="20" required="true" label="KM Estrada">
-					</p:inputText>
-
-					<h:outputLabel value="Volume Tanque: " for="volumeTanque"
-						style="text-align:center" />
-					<p:inputText id="volumeTanque"
-						value="#{carroMB.carro.volumeTanque}" size="20" required="true"
-						label="volumeTanque">
-					</p:inputText>
-
-					<h:outputLabel value="Volume Bagageiro: " for="volumeBagageiro"
-						style="text-align:center" />
-					<p:inputText id="volumeBagageiro"
-						value="#{carroMB.carro.volumeBagageiro}" size="20" required="true"
-						label="Volume Bagageiro">
-					</p:inputText>
-
-					<h:outputLabel value="Número de assentos:" for="numAssentos"
-						style="text-align:center" />
-					<p:inputText id="numAssentos" value="#{carroMB.carro.numAssentos}"
-						size="20" required="true" label="Número de Assentos">
-					</p:inputText>
-
-					<h:outputLabel value="Quantidade de Portas:" for="qntPortas"
-						style="text-align:center" />
-					<p:inputText id="qntPortas" value="#{carroMB.carro.qntPortas}"
-						size="20" required="true" label="Quantidade de Portas">
-					</p:inputText>
-
-					<h:outputLabel value="Aceleração (0-100/s): " for="aceleracao"
-						style="text-align:center" />
-					<p:inputText id="aceleracao" value="#{carroMB.carro.aceleracao}"
-						size="20" required="true" label="Aceleração">
-					</p:inputText>
-
-					<h:outputLabel value="Velocidade Máxima: " for="velocidadeMax"
-						style="text-align:center" />
-					<p:inputText id="velocidadeMax"
-						value="#{carroMB.carro.velocidadeMax}" size="20" required="true"
-						label="Velocidade Max">
-					</p:inputText>
-
-					<h:outputLabel value="Área cega: " for="areaCega"
-						style="text-align:center" />
-					<p:inputText id="areaCega" value="#{carroMB.carro.areaCega}"
-						size="20" required="true" label="Área Cega">
-					</p:inputText>
-
-					<h:outputLabel value="Ano: " for="ano" style="text-align:center" />
-					<p:calendar id="ano" value="#{carroMB.carro.ano}" size="20"
-						required="true" label="Ano" pattern="dd/MM/yyyy" locale="pt_BR" />
-
-
+					<p:row id="PrecoAno">
+						<p:column>
+							<h:outputLabel value="Preço Tabelado: " for="precoTabelado"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:inputText id="precoTabelado"
+								value="#{carroMB.carro.precoTabelado}" size="33" required="true"
+								label="Preco Tabelado" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Ano: " for="ano" style="text-align:center" />
+						</p:column>
+						<p:column>
+							<p:calendar id="ano" value="#{carroMB.carro.ano}" size="33"
+								required="true" label="Ano" pattern="dd/MM/yyyy" locale="pt_BR" />
+						</p:column>
+					</p:row>
+					
+					<p:row><p:column><br></br><br></br></p:column></p:row>
+					
 					<p:row>
-						<p:column colspan="" style="text-align: center;">
- 
+						<p:column>
 							<p:commandButton id="showDialogButton" value="Cadastrar"
 								style="text-align:center" update="panelCarro"
 								action="#{carroMB.inserir()}" process="@form" />
-
+						</p:column>
+						<p:column>
 							<p:commandButton value="Limpar Campos" type="reset"
 								style="text-align:center" />
-
 						</p:column>
 					</p:row>
 				</p:panelGrid>

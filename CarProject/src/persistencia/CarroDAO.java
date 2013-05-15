@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import beans.CapacidadeLitros;
 import beans.Carro;
 import beans.Combustivel;
+import beans.Litros;
 import beans.TipoCarro;
 
 
@@ -43,7 +43,7 @@ public class CarroDAO implements Serializable {
 			ps.setString(4, ca.getModelo().toUpperCase());
 			ps.setString(5, ca.getTipo().getNome());
 			ps.setDouble(6, ca.getPotencia());
-			ps.setString(7, ca.getCapacidadeLitros().getCapacidadeLitros());
+			ps.setString(7, ca.getCapacidadeLitros().getCapacidade());
 			ps.setString(8, ca.getTipoTracao());
 			ps.setString(9, ca.getPosicaoMotor());
 			ps.setString(10, ca.getCombustivel().getCombustivel());
@@ -103,10 +103,10 @@ public class CarroDAO implements Serializable {
 
 				Carro carro = new Carro();
 				TipoCarro tp = new TipoCarro();
-				CapacidadeLitros cp = new CapacidadeLitros();
+				Litros cp = new Litros();
 				Combustivel com = new Combustivel();
 
-				cp.setCapacidadeLitros(rs.getString("capacidade_litros"));
+				cp.setCapacidade(rs.getString("capacidade_litros"));
 				tp.setNome(rs.getString("tipo"));
 				com.setCombustivel(rs.getString("combustivel"));
 				
