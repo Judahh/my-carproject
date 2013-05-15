@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.CapacidadeLitros;
+import beans.Litros;
 
 
 
@@ -19,11 +19,11 @@ public class CapacidadeLitrosDAO implements Serializable{
 	
 	
 	
-	public List <CapacidadeLitros> getListar(){
+	public List <Litros> getListar(){
 		
 		Connection c = null;
 		PreparedStatement ps = null;
-		List <CapacidadeLitros> selectLitro = new ArrayList <CapacidadeLitros>();
+		List <Litros> selectLitro = new ArrayList <Litros>();
 		
 		try{
 			c = ConnectionManager.open();
@@ -33,9 +33,9 @@ public class CapacidadeLitrosDAO implements Serializable{
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
-				CapacidadeLitros cl = new CapacidadeLitros();
+				Litros cl = new Litros();
 				cl.setCodCap(rs.getInt("cod_cap"));
-				cl.setCapacidadeLitros(rs.getString("capacidade_litros"));
+				cl.setCapacidade(rs.getString("capacidade_litros"));
 				
 				selectLitro.add(cl);
 			}

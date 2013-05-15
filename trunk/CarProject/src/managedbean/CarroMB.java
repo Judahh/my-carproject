@@ -22,7 +22,7 @@ public class CarroMB implements Serializable{
 	
 	public CarroMB(){
 		carro = new Carro();
-		carroDAO = new CarroDAO();
+		carroDAO = new CarroDAO();		
 	}
 	
 	public void inserir(){
@@ -32,7 +32,7 @@ public class CarroMB implements Serializable{
 	}
 	
 	public void buscar(){
-		carroDAO.buscar(carro);	
+		carro = carroDAO.buscar(carro);	
 		System.out.println("Busca (ok): " + carro.toString());
 	}
 	

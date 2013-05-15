@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="./template.xhtml">
+	<ui:define name="content">
+		<h:form id="formBuscarConcessionaria">
+			<p:panel id="panelBuscarConcessionaria"
+				header="Buscar Concessionária" style="heigh:140px" align="center">
+
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+
+				<p:panelGrid columns="3">
+
+					<h:outputLabel value="Digite o CNPJ da sua empresa: " for="cnpj"
+						style="text-align:center" />
+					<p:inputMask id="cnpj"
+						value="#{concessionariaMB.concessionaria.cnpj}" size="20"
+						required="true" label="CNPJ" mask="999.999.999-99"
+						validator="#{cadastroController.validarEspacoBranco}" />
+					<p:commandButton value="Buscar" process="@form"
+						update="formBuscarConcessionaria :display" id="buscar"
+						action="#{concessionariaMB.buscar()}" />
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+
+		<p:panel id="display" header="Informações">
+			<p:panelGrid columns="4" text-align="left">
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Nome da Concessionária: " />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{concessionariaMB.concessionaria.nomeConcessionaria}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="CNPJ: " />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{concessionariaMB.concessionaria.cnpj}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Endereço: " />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{concessionariaMB.concessionaria.endereco}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Bairro: " />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{concessionariaMB.concessionaria.bairro}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Referência Local: " />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{concessionariaMB.concessionaria.referencia}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Email: " />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{concessionariaMB.concessionaria.email}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Telefone: " />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{concessionariaMB.concessionaria.telefone}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Telefone Opcional: " />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{concessionariaMB.concessionaria.telefone2}" />
+					</p:column>
+				</p:row>
+
+			</p:panelGrid>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

@@ -61,5 +61,48 @@ public class TipoCarroDAO implements Serializable{
 		}
 		return selectTipo;		
 	}
-
+	
+	public TipoCarro buscar(String nome){
+		
+		Connection c = null;
+		PreparedStatement ps = null;
+		TipoCarro tp = new TipoCarro();
+		
+		try{
+			c = ConnectionManager.open();
+			ps = c.prepareStatement("SELECT * from table_tipo_carros WHERE nome = " + nome);
+		
+			ResultSet rs;
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+				tp.setCodTipo(rs.getInt("cod_tipo"));
+				tp.setNome(rs.getString("nome"));
+				
+			}
+			
+		}catch(SQLException ex){
+			System.out.println("Erro ao listar");
+			ex.printStackTrace();
+			
+		}catch(ClassNotFoundException cn){
+			System.out.println("ClassNotFound...");
+			cn.printStackTrace();
+			
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+				
+				if (c != null)
+					c.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return tp;		
+	}
+		
 }
+
+

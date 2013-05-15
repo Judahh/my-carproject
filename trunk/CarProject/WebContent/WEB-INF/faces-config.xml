@@ -20,9 +20,4 @@
 
 	</navigation-rule>
 
-	<converter>
-		<converter-id>converterTipo</converter-id>
-		<converter-class>converters.ConverterTipo</converter-class>
-	</converter>
-
 </faces-config>

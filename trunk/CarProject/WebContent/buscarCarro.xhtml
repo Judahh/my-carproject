@@ -11,7 +11,7 @@
 
 		<h:form id="formBuscarCarro">
 			<p:panel id="panelBuscarCarro" header="Buscar Carro"
-				style="width:450px;height: 140px" align="center">
+				style="height: 140px" align="center">
 
 				<p:messages id="messages" autoUpdate="true" closable="true" />
 
@@ -20,7 +20,7 @@
 					<h:outputLabel value="Digite o código do carro: " for="codCarro"
 						style="text-align:center" />
 					<h:inputText id="codCarro" value="#{carroMB.carro.codCarro}"
-						size="20" required="true" label="codCarro" />
+						size="20" required="true" label="Codigo Carro" />
 					<p:commandButton value="Buscar" process="@form"
 						update="formBuscarCarro :display" id="buscar"
 						action="#{carroMB.buscar()}" />
@@ -36,7 +36,7 @@
 				<h:outputText value="Código Carro: " />
 				<h:outputText value="#{carroMB.carro.codCarro}" />
 
-				<h:outputText value="Preço Tabela: " />
+				<h:outputText value="Preço Tabela (R$): " />
 				<h:outputText value="#{carroMB.carro.precoTabelado}" />
 
 				<h:outputText value="Marca: " />
@@ -46,7 +46,7 @@
 				<h:outputText value="#{carroMB.carro.modelo}" />
 
 				<h:outputText value="Tipo: " />
-				<h:outputText value="#{carroMB.carro.tipo}" />
+				<h:outputText value="#{carroMB.carro.tipo.nome}" />
 
 				<h:outputText value="Potência: " />
 				<h:outputText value="#{carroMB.carro.potencia}" />

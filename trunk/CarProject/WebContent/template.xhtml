@@ -13,76 +13,82 @@
 </h:head>
 <h:body>
 	<!-- <div align="left"> -->
-		<p:layout fullPage="true" >
+	<p:layout fullPage="true">
 
-			<p:layoutUnit position="north" size="100" header="Titulo Página"
-				resizable="false" closable="false" collapsible="true">
-				<h1><font size="1"><h:outputText
-						value="Título ou Imagem" /></font></h1>
-			</p:layoutUnit>
+		<p:layoutUnit position="north" size="100" header="Titulo Página"
+			resizable="false" closable="false" collapsible="true">
+			<h1>
+				<font size="1"><h:outputText value="Título ou Imagem" /></font>
+			</h1>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="south" size="80" header="Bottom"
-				resizable="false" closable="false" collapsible="true" >
-				<h:outputText value="Direitos autorais" /><br></br>
-				<h1><font size="1"><h:outputText value = "#{templateMB.data()}"/></font></h1>
-			</p:layoutUnit>
+		<p:layoutUnit position="south" size="80" header="Bottom"
+			resizable="false" closable="false" collapsible="true">
+			<h:outputText value="Direitos autorais" />
+			<br></br>
+			<h1>
+				<font size="1"><h:outputText value="#{templateMB.data()}" /></font>
+			</h1>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="west" size="200"
-				header="Painel Administrador" resizable="false" closable="false"
-				collapsible="true">
-				<ui:insert name="menu">
-					<h:form prependId="false">
-						<p:panelMenu style="width:190px">
+		<p:layoutUnit position="west" size="200" header="Painel Administrador"
+			resizable="false" closable="false" collapsible="true">
+			<ui:insert name="menu">
+				<h:form prependId="false">
+					<p:panelMenu style="width:190px">
 
-							<p:submenu label="Painel Concessionária">
-								<p:menuitem id="cadastroConcessionaria"
-									value="Cadastrar Concessionária" ajax="false"
-									url="/cadastroConcessionaria.jsf"
-									action="#{cadastroController.iniciarTelaConcessionaria}" />
-								<p:menuitem value="Alterar Dados Concessionária" ajax ="false"
-									url="/alterarDadosConcessionaria.jsf" />
-							</p:submenu>
+						<p:submenu label="Painel Concessionária">
+							<p:menuitem id="cadastroConcessionaria"
+								value="Cadastrar Concessionária" ajax="false"
+								url="/cadastroConcessionaria.jsf"
+								action="#{cadastroController.iniciarTelaConcessionaria}" />
+							<p:menuitem value="Alterar Dados Concessionária" ajax="false"
+								url="/alterarDadosConcessionaria.jsf" />
+							<p:menuitem value="Informações Concessionária" ajax="false"
+								url="/buscarConcessionaria.jsf" />
+						</p:submenu>
 
-							<p:submenu label="Painel Carros">
-								<p:menuitem id="cadastroCarro" value="Cadastrar Carros"
-									ajax="false" url="/cadastroCarroNew.jsf"
-									action="#{cadastroController.iniciarTelaCarro}" />
-								<p:menuitem value="Alterar Dados Carro"
-									url="alterarDadosCarro.xhtml" />
-							</p:submenu>
+						<p:submenu label="Painel Carros">
+							<p:menuitem id="cadastroCarro" value="Cadastrar Carros"
+								ajax="false" url="/cadastroCarroNew.jsf"
+								action="#{cadastroController.iniciarTelaCarro}" />
+							<p:menuitem value="Alterar Dados Carro"
+								url="alterarDadosCarro.xhtml" />
+							<p:menuitem value="Informações Carro" ajax="false"
+								url="/buscarCarro.jsf" />
+						</p:submenu>
 
-							<p:submenu label="Painel Motos">
-								<p:menuitem value="Cadastrar Motos" url="cadastroMoto.xhtml" />
-								<p:menuitem value="Alterar Dados Motos"
-									url="alterarDadosMoto.xhtml" />
-							</p:submenu>
+						<p:submenu label="Painel Motos">
+							<p:menuitem value="Cadastrar Motos" url="cadastroMoto.xhtml" />
+							<p:menuitem value="Alterar Dados Motos"
+								url="alterarDadosMoto.xhtml" />
+							<p:menuitem value="Informações Moto" url="buscarMoto.xhtml" />
+						</p:submenu>
 
-							<p:submenu label="Informações Veículo">
-								<p:menuitem value="Informações Carro" ajax="false"
-									url="/buscarCarro.jsf" />
-								<p:menuitem value="Informações Moto" url="buscarMoto.xhtml" />
-							</p:submenu>
+						<p:submenu label="Pesquisar por característica">
+							<p:menuitem value="Carros" />
+							<p:menuitem value="Motos" />
+						</p:submenu>
+					</p:panelMenu>
+				</h:form>
+			</ui:insert>
+		</p:layoutUnit>
 
-							<p:submenu label="Pesquisar por característica">
-								<p:menuitem value="Carros" />
-								<p:menuitem value="Motos" />
-							</p:submenu>
-						</p:panelMenu>
-					</h:form>
-				</ui:insert>
-			</p:layoutUnit>
+		<p:layoutUnit position="east" size="170" header="Links Afiliados"
+			resizable="false" closable="false" collapsible="true">
+			<!-- <font size="1"><h:outputLink
+					value="Links sites das concessionarias" url = "www.vouga.com.br"/></font> -->
+			<h:form>
+				<h:outputLink value="http://www.vouga.com.br">- Vouga</h:outputLink><br></br>
+				<h:outputLink value="http://www.cearamotor.com.br">- Ceará Motor</h:outputLink>
+			</h:form>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="east" size="200" header="Links Afiliados"
-				resizable="false" closable="false" collapsible="true">
-				<font size="1"><h:outputText
-						value="links sites das concessionarias" /></font>
-			</p:layoutUnit>
+		<p:layoutUnit position="center">
+			<ui:insert name="content"> Content</ui:insert>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="center">
-				<ui:insert name="content"> Content</ui:insert>
-			</p:layoutUnit>
-
-		</p:layout>
+	</p:layout>
 	<!-- </div> -->
 </h:body>
 </html>

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import beans.CapacidadeLitros;
+import beans.Litros;
 
 import persistencia.CapacidadeLitrosDAO;
 
@@ -18,11 +18,11 @@ public class CapLitrosMB implements Serializable{
 
 	private static final long serialVersionUID = -179671115993898868L;
 	
-	private CapacidadeLitros cp;
+	private Litros cp;
 	private CapacidadeLitrosDAO cpDAO;
 	
 	public CapLitrosMB(){
-		cp = new CapacidadeLitros();
+		cp = new Litros();
 		cpDAO = new CapacidadeLitrosDAO();
 	}
 	
@@ -31,15 +31,15 @@ public class CapLitrosMB implements Serializable{
 		cpDAO.getListar();
 	}
 	
-	public CapacidadeLitros getCp(){
+	public Litros getCp(){
 		return cp;
 	}
 	
-	public void setCp(CapacidadeLitros cp){
+	public void setCp(Litros cp){
 		this.cp = cp;
 	}
 	
-	public List<CapacidadeLitros> getCapacidades(){
+	public List<Litros> getCapacidades(){
 		return cpDAO.getListar();
 	}
 	
