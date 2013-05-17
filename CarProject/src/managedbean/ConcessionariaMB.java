@@ -40,4 +40,5 @@ public class ConcessionariaMB implements Serializable{
 	public void setConcessionaria(Concessionaria concessionaria){
 		this.concessionaria = concessionaria;
 	}
+	
 }

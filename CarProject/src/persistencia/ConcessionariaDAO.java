@@ -91,6 +91,7 @@ public class ConcessionariaDAO implements Serializable{
 				concessionaria.setNomeConcessionaria(rs.getString("nome_concessionaria"));
 				concessionaria.setCnpj(rs.getString("cnpj"));
 				concessionaria.setEndereco(rs.getString("endereco"));
+				concessionaria.setEnderecoWEB(rs.getString("endereco_web"));
 				concessionaria.setBairro(rs.getString("bairro"));
 				concessionaria.setReferencia(rs.getString("referencia"));
 				concessionaria.setEmail(rs.getString("email"));

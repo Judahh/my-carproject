@@ -31,7 +31,7 @@
 			</h1>
 		</p:layoutUnit>
 
-		<p:layoutUnit position="west" size="200" header="Painel Administrador"
+		<p:layoutUnit position="west" size="190" header="Painel Administrador"
 			resizable="false" closable="false" collapsible="true">
 			<ui:insert name="menu">
 				<h:form prependId="false">
@@ -44,8 +44,6 @@
 								action="#{cadastroController.iniciarTelaConcessionaria}" />
 							<p:menuitem value="Alterar Dados Concessionária" ajax="false"
 								url="/alterarDadosConcessionaria.jsf" />
-							<p:menuitem value="Informações Concessionária" ajax="false"
-								url="/buscarConcessionaria.jsf" />
 						</p:submenu>
 
 						<p:submenu label="Painel Carros">
@@ -55,7 +53,7 @@
 							<p:menuitem value="Alterar Dados Carro"
 								url="alterarDadosCarro.xhtml" />
 							<p:menuitem value="Informações Carro" ajax="false"
-								url="/buscarCarro.jsf" />
+								url="/listarCarros.jsf" />
 						</p:submenu>
 
 						<p:submenu label="Painel Motos">
@@ -75,12 +73,12 @@
 		</p:layoutUnit>
 
 		<p:layoutUnit position="east" size="170" header="Links Afiliados"
-			resizable="false" closable="false" collapsible="true">
+			resizable="false" closable="false" collapsible="true"><br></br>
 			<!-- <font size="1"><h:outputLink
 					value="Links sites das concessionarias" url = "www.vouga.com.br"/></font> -->
 			<h:form>
-				<h:outputLink value="http://www.vouga.com.br">- Vouga</h:outputLink><br></br>
-				<h:outputLink value="http://www.cearamotor.com.br">- Ceará Motor</h:outputLink>
+				<h:outputLink value="http://www.vouga.com.br" target="_blank">- Vouga</h:outputLink><br></br>
+				<h:outputLink value="http://www.cearamotor.com.br" target = "_blank">- Ceará Motor</h:outputLink>
 			</h:form>
 		</p:layoutUnit>
 

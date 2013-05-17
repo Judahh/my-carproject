@@ -25,12 +25,15 @@ public class Carro implements Serializable{
 	private BigDecimal precoTabelado;
 	private String marca;
 	private String modelo;
-	private TipoCarro tipo;
+	//private TipoCarro tipo;
+	private String tipo;
 	private Double potencia;
-	private Litros capacidadeLitros;
+	//private Litros capacidadeLitros;
+	private String capacidadeLitros;
 	private String tipoTracao;
 	private String posicaoMotor;
-	private Combustivel combustivel;
+	//private Combustivel combustivel;
+	private String combustivel;
 	private Double autonomiaKM;
 	private Double kmCidade;
 	private Double kmEstrada;
@@ -67,10 +70,10 @@ public class Carro implements Serializable{
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public TipoCarro getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(TipoCarro tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	public Double getPotencia() {
@@ -79,10 +82,10 @@ public class Carro implements Serializable{
 	public void setPotencia(Double potencia) {
 		this.potencia = potencia;
 	}
-	public Litros getCapacidadeLitros() {
+	public String getCapacidadeLitros() {
 		return capacidadeLitros;
 	}
-	public void setCapacidadeLitros(Litros capacidadeLitros) {
+	public void setCapacidadeLitros(String capacidadeLitros) {
 		this.capacidadeLitros = capacidadeLitros;
 	}
 	public String getTipoTracao() {
@@ -97,10 +100,10 @@ public class Carro implements Serializable{
 	public void setPosicaoMotor(String posicaoMotor) {
 		this.posicaoMotor = posicaoMotor;
 	}
-	public Combustivel getCombustivel() {
+	public String getCombustivel() {
 		return combustivel;
 	}
-	public void setCombustivel(Combustivel combustivel) {
+	public void setCombustivel(String combustivel) {
 		this.combustivel = combustivel;
 	}
 	public Double getAutonomiaKM() {
@@ -169,7 +172,6 @@ public class Carro implements Serializable{
 	public void setAno(Date ano) {
 		this.ano = ano;
 	}
-	
 	@Override
 	public String toString() {
 		return "Carro [codCarro=" + codCarro + ", precoTabelado="
@@ -185,6 +187,50 @@ public class Carro implements Serializable{
 				+ areaCega + ", aceleracao=" + aceleracao + ", velocidadeMax="
 				+ velocidadeMax + ", ano=" + ano + "]";
 	}
+	
+	
+	
+	
+	
+	
+	/*public TipoCarro getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoCarro tipo) {
+		this.tipo = tipo;
+	}*/
+	
+	
+	/*public Litros getCapacidadeLitros() {
+		return capacidadeLitros;
+	}
+	public void setCapacidadeLitros(Litros capacidadeLitros) {
+		this.capacidadeLitros = capacidadeLitros;
+	}*/
+	
+	/*public Combustivel getCombustivel() {
+		return combustivel;
+	}
+	public void setCombustivel(Combustivel combustivel) {
+		this.combustivel = combustivel;
+	}*/
+	
+	
+	/*@Override
+	public String toString() {
+		return "Carro [codCarro=" + codCarro + ", precoTabelado="
+				+ precoTabelado + ", marca=" + marca + ", modelo=" + modelo
+				+ ", tipo=" + tipo + ", potencia=" + potencia
+				+ ", capacidadeLitros=" + capacidadeLitros + ", tipoTracao="
+				+ tipoTracao + ", posicaoMotor=" + posicaoMotor
+				+ ", combustivel=" + combustivel + ", autonomiaKM="
+				+ autonomiaKM + ", kmCidade=" + kmCidade + ", kmEstrada="
+				+ kmEstrada + ", numAssentos=" + numAssentos
+				+ ", volumeBagageiro=" + volumeBagageiro + ", volumeTanque="
+				+ volumeTanque + ", qntPortas=" + qntPortas + ", areaCega="
+				+ areaCega + ", aceleracao=" + aceleracao + ", velocidadeMax="
+				+ velocidadeMax + ", ano=" + ano + "]";
+	}*/
 	
 	
 	

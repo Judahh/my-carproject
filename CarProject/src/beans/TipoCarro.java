@@ -28,6 +28,7 @@ public class TipoCarro implements Serializable{
 		return "TipoCarro [codTipo=" + codTipo + ", nome=" + nome + "]";
 	}
 	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -52,4 +53,6 @@ public class TipoCarro implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
 }

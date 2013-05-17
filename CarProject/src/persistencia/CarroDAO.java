@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import beans.Carro;
 import beans.Combustivel;
@@ -23,7 +25,6 @@ public class CarroDAO implements Serializable {
 
 		Connection c = null;
 		PreparedStatement ps = null;
-		System.out.println("0");
 
 		try {
 			c = ConnectionManager.open();
@@ -41,12 +42,15 @@ public class CarroDAO implements Serializable {
 			ps.setBigDecimal(2, ca.getPrecoTabelado());
 			ps.setString(3, ca.getMarca().toUpperCase());
 			ps.setString(4, ca.getModelo().toUpperCase());
-			ps.setString(5, ca.getTipo().getNome());
+			//ps.setString(5, ca.getTipo().getNome());
+			ps.setString(5, ca.getTipo());
 			ps.setDouble(6, ca.getPotencia());
-			ps.setString(7, ca.getCapacidadeLitros().getCapacidade());
+			//ps.setString(7, ca.getCapacidadeLitros().getCapacidade());
+			ps.setString(7, ca.getCapacidadeLitros());
 			ps.setString(8, ca.getTipoTracao());
 			ps.setString(9, ca.getPosicaoMotor());
-			ps.setString(10, ca.getCombustivel().getCombustivel());
+			//ps.setString(10, ca.getCombustivel().getCombustivel());
+			ps.setString(10, ca.getCombustivel());
 			ps.setDouble(11, ca.getAutonomiaKM());
 			ps.setDouble(12, ca.getKmCidade());
 			ps.setDouble(13, ca.getKmEstrada());
@@ -90,7 +94,6 @@ public class CarroDAO implements Serializable {
 
 		Connection c = null;
 		PreparedStatement ps = null;
-		// List <Carro> selectCarros = new ArrayList <Carro>();
 
 		try {
 			c = ConnectionManager.open();
@@ -114,12 +117,15 @@ public class CarroDAO implements Serializable {
 				carro.setPrecoTabelado(rs.getBigDecimal("preco_tabelado"));
 				carro.setMarca(rs.getString("marca"));
 				carro.setModelo(rs.getString("modelo"));
-				carro.setTipo(tp);
+				//carro.setTipo(tp);
+				carro.setTipo(rs.getString("tipo"));
 				carro.setPotencia(rs.getDouble("potencia"));
-				carro.setCapacidadeLitros(cp);
+				//carro.setCapacidadeLitros(cp);
+				carro.setCapacidadeLitros(rs.getString("capacidade_litros"));
 				carro.setTipoTracao(rs.getString("tipo_tracao"));
 				carro.setPosicaoMotor(rs.getString("posicao_motor"));
-				carro.setCombustivel(com);
+				//carro.setCombustivel(com);
+				carro.setCombustivel(rs.getString("combustivel"));
 				carro.setAutonomiaKM(rs.getDouble("autonomia_km"));
 				carro.setKmCidade(rs.getDouble("km_cidade"));
 				carro.setKmEstrada(rs.getDouble("km_estrada"));
@@ -143,6 +149,69 @@ public class CarroDAO implements Serializable {
 			ex.printStackTrace();
 
 		} catch (ClassNotFoundException cn) {
+			System.out.println("ClassNotFound...");
+			cn.printStackTrace();
+
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+
+				if (c != null)
+					c.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	public List<Carro> listar(String marca){
+		
+		Connection c = null;
+		PreparedStatement ps = null;
+		
+	
+		try{
+			List<Carro> selectCarros = new ArrayList <Carro>();
+			
+			c = ConnectionManager.open();
+			ps = c.prepareStatement("SELECT marca, modelo, potencia, tipo, combustivel, preco_tabelado, ano, qnt_portas FROM table_carros WHERE marca =?");
+			
+			ps.setString(1, marca.toUpperCase());
+			ResultSet rs = ps.executeQuery();
+			
+			Carro carro;
+			while(rs.next()){
+				
+				carro = new Carro();
+				TipoCarro tp = new TipoCarro();
+				Combustivel com = new Combustivel();
+				
+				tp.setNome(rs.getString("tipo"));
+				com.setCombustivel(rs.getString("combustivel"));
+				
+				carro.setMarca(rs.getString("marca"));
+				carro.setModelo(rs.getString("modelo"));
+				carro.setPotencia(rs.getDouble("potencia"));
+				//carro.setTipo(tp);
+				//carro.setCombustivel(com);
+				carro.setTipo(rs.getString("tipo"));
+				carro.setCombustivel(rs.getString("combustivel"));
+				carro.setPrecoTabelado(rs.getBigDecimal("preco_tabelado"));
+				carro.setAno(rs.getDate("ano"));
+				carro.setQntPortas(rs.getInt("qnt_portas"));
+				
+				selectCarros.add(carro);
+				
+			}
+			
+			return selectCarros;
+			
+		}catch (SQLException ex){
+			System.out.println("Erro ao listar");
+			ex.printStackTrace();
+		}catch (ClassNotFoundException cn) {
 			System.out.println("ClassNotFound...");
 			cn.printStackTrace();
 

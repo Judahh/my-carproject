@@ -17,7 +17,7 @@ public class TemplateMB implements Serializable{
 	Date hoje = new Date();
 
 	public String data(){
-		String formato="dd/MM/yy";
+		String formato="dd/MM/yyyy";
 		SimpleDateFormat formatada= new SimpleDateFormat(formato);
 		return("Data de Hoje: "+formatada.format(hoje));
 	}
@@ -33,7 +33,7 @@ public class TemplateMB implements Serializable{
 		SimpleDateFormat formatada= new SimpleDateFormat(formato);
 		return(""+formatada.format(hoje));
 	}	
-		
+	
 }	
 	
 	

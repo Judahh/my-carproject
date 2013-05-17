@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="./template.xhtml">
+	<ui:define name="content">
+
+		<h:form id="formBuscarCarro">
+			<p:panel id="panelBuscarCarro" header="Buscar Carro"
+				style="height: 140px" align="center">
+
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+
+				<p:panelGrid columns="3">
+
+					<h:outputLabel value="Digite a marca do carro: " for="marca"
+						style="text-align:center" />
+					<h:inputText id="marca" value="#{carroMB.carro.marca}" size="20"
+						required="true" label="Marca" style="text-transform:uppercase" />
+					<p:commandButton value="Listar" process="@form"
+						update="formBuscarCarro :displayLista" id="listar"
+						action="#{carroMB.acao()}" />
+
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+		
+			<p:panel id="displayLista" header="Informações Veículo">
+
+				<p:panelGrid columns="4">
+
+					<p:dataTable id="tabela" var="car" paginator="true" rendered="true"
+						rows="20" value="#{carroMB.carros}"
+						emptyMessage="Nenhum modelo encontrado" paginatorPosition="bottom" styleClass="printBorders">
+
+						<p:column headerText="Marca" style="text-align:center">
+							<h:outputText value="#{car.marca}" />
+						</p:column>
+
+						<p:column headerText="Modelo" style="text-align:center">
+							<h:outputText value="#{car.modelo}" />
+						</p:column>
+
+						<p:column headerText="Tipo" style="text-align:center">
+							<h:outputText value="#{car.tipo}" />
+						</p:column>
+
+						<p:column headerText="Combustivel" style="text-align:center">
+							<h:outputText value="#{car.combustivel}" />
+						</p:column>
+
+						<p:column headerText="Potência" style="text-align:center">
+							<h:outputText value="#{car.potencia}" />
+						</p:column>
+
+						<p:column headerText="Nº Portas" style="text-align:center">
+							<h:outputText value="#{car.qntPortas}" />
+						</p:column>
+
+						<p:column headerText="Ano Fabricação" style="text-align:center">
+							<h:outputText value="#{car.ano}" />
+
+						</p:column>
+						<p:column headerText="Preço Tabelado" style="text-align:center">
+							<h:outputText value="#{car.precoTabelado}" />
+						</p:column>
+
+						<p:column headerText="Informações detalhadas"
+							style="text-align:center">
+							
+							<p:commandButton id="Buscar" icon="ui-icon-search"
+								tittle="iconSearch"/>
+						</p:column>
+
+					</p:dataTable>
+				</p:panelGrid>
+			</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

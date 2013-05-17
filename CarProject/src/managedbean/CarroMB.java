@@ -1,6 +1,8 @@
 package managedbean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -20,13 +22,15 @@ public class CarroMB implements Serializable{
 	private Carro carro;
 	private CarroDAO carroDAO;
 	
+	private List<Carro> carros;
+	
 	public CarroMB(){
 		carro = new Carro();
-		carroDAO = new CarroDAO();		
+		carroDAO = new CarroDAO();	
+		carros = new ArrayList<Carro>();
 	}
 	
 	public void inserir(){
-		System.out.println("TESTE");
 		carroDAO.inserirCarro( carro );
 		System.out.println("Inserido (ok): " + carro.toString());
 	}
@@ -40,8 +44,16 @@ public class CarroMB implements Serializable{
 		return carro;
 	}
 	
+	
 	public void setCarro(Carro carro){
 		this.carro = carro;
 	}
 	
+	public List<Carro> getCarros(){
+		return carros; 
+	}
+	
+	public void acao(){
+		carros = carroDAO.listar(carro.getMarca());
+	}
 }

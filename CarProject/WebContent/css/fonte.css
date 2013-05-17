@@ -4,3 +4,10 @@
 	font-family: arial;
 	font-size:11px;
 }
+
+.printBorders{
+	
+	border-width:2px;
+	border-style:solid;
+	border-color:black;
+}
