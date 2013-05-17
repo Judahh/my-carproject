@@ -138,8 +138,8 @@
 						</p:column>
 						<p:column>
 							<p:selectOneMenu id="tipo" value="#{carroMB.carro.tipo}">
-								<f:selectItem itemLabel="Selecione o tipo de carro..." />
-								<f:selectItems value="#{tipoMB.tipos}" itemValue="#{tpCarro}"
+								<f:selectItem itemLabel="Selecione..." />
+								<f:selectItems value="#{tipoMB.tipos}" itemValue="#{tpCarro.nome}"
 									itemLabel="#{tpCarro.nome}" var="tpCarro" />
 							</p:selectOneMenu>
 						</p:column>
@@ -150,9 +150,9 @@
 						<p:column>
 							<p:selectOneMenu id="capacidadeLitros"
 								value="#{carroMB.carro.capacidadeLitros}">
-								<f:selectItem itemLabel="Selecione a capacidade em litros..." />
+								<f:selectItem itemLabel="Selecione..." />
 								<f:selectItems value="#{capLitrosMB.capacidades}"
-									itemValue="#{clitros}" itemLabel="#{clitros.capacidade}"
+									itemValue="#{clitros.capacidade}" itemLabel="#{clitros.capacidade}"
 									var="clitros" />
 							</p:selectOneMenu>
 						</p:column>
@@ -163,9 +163,9 @@
 						<p:column>
 							<p:selectOneMenu id="combustivel"
 								value="#{carroMB.carro.combustivel}">
-								<f:selectItem itemLabel="Selecione tipo de combustível..." />
+								<f:selectItem itemLabel="Selecione..." />
 								<f:selectItems value="#{combustivelMB.combustiveis}"
-									itemValue="#{comb}" itemLabel="#{comb.combustivel}" var="comb" />
+									itemValue="#{comb.combustivel}" itemLabel="#{comb.combustivel}" var="comb" />
 							</p:selectOneMenu>
 						</p:column>
 					</p:row>

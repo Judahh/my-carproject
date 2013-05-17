@@ -11,29 +11,140 @@
 			<p:messages id="messsages" autoUpdate="true" closable="true" />
 
 			<p:panel id="panelBuscarConcessionaria"
-				header="Alterar dados da concessionária"
-				style="height:740px" align="center">
+				header="Alterar dados da concessionária" style="height:140px"
+				align="center">
 
 				<p:messages id="messages" autoUpdate="true" closable="true" />
 
 				<p:panelGrid columns="3">
-					<h:outputLabel value="Digite o código da concessionaria: "
-						for="codConcessionaria" style="text--align:center" />
-					<h:inputText id="codConcessionaria"
-						value="#{concessionariaMB.concessionaria.codConcessionaria} "
-						required="true" />
-
+					<h:outputLabel value="Digite o CNPJ da concessionaria: " for="cnpj"
+						style="text--align:center" />
+					<p:inputMask id="cnpj"
+						value="#{concessionariaMB.concessionaria.cnpj}" size="30"
+						required="true" label="CNPJ" mask="99.999.999/9999-99"
+						validator="#{cadastroController.validarEspacoBranco}" />
 					<p:commandButton value="Buscar" process="@form"
 						update="formAlteraCon :display" id="buscar"
 						action="#{concessionariaMB.buscar()}" />
 				</p:panelGrid>
 			</p:panel>
 		</h:form>
-		
-		<p:panel id="display" header="Informações">
 
+		<p:panel id="display" header="Informações Concessionaria">
+
+			<p:dataTable id="tabela" var="con" paginator="false" rendered="true"
+				value="#{concessionariaMB.concessionaria}"
+				emptyMessage="Nenhuma empresa encontrada" styleClass="printBorders">
+
+
+				<p:column headerText="Empresa" style="text-align:center">
+					<h:outputText value="#{con.nomeConcessionaria}" />
+				</p:column>
+
+				<p:column headerText="CNPJ" style="text-align:center">
+					<h:outputText value="#{con.cnpj}" />
+				</p:column>
+
+				<p:column headerText="Endereço" style="text-align:center">
+					<h:outputText value="#{con.endereco}" />
+				</p:column>
+
+				<p:column headerText="Bairro" style="text-align:center">
+					<h:outputText value="#{con.bairro}" />
+				</p:column>
+
+				<p:column headerText="Referência" style="text-align:center">
+					<h:outputText value="#{con.referencia}" />
+				</p:column>
+
+				<p:column headerText="Site" style="text-align:center">
+					<h:outputText value="#{con.enderecoWEB}" />
+				</p:column>
+
+				<p:column headerText="Email" style="text-align:center">
+					<h:outputText value="#{con.email}" />
+				</p:column>
+
+				<p:column headerText="Telefone" style="text-align:center">
+					<h:outputText value="#{con.telefone}" />
+				</p:column>
+
+				<p:column headerText="Telefone Opcional" style="text-align:center">
+					<h:outputText value="#{con.telefone2}" />
+				</p:column>
+
+				<p:column style="text-align:center">
+					<f:facet name="header">
+						<h:outputText value="Alterar" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-plus" title="iconAlter"
+						 oncomplete="dialogAlterCon.show()" />
+				</p:column>
+			</p:dataTable>
 		</p:panel>
+	
+		
+		 <p:dialog header="Alterar dados" widgetVar="dialogAlterCon"
+			resizable="false" showEffect="slide" width="200" closable="true" style="text-align:center">
+			<h:form prependId="false">
+			<p:panel align = "center">
+				<h:panelGrid id="infosConcessionaria"  align = "center"
+					style="margin-bottom:10px">
+					
+					<p:column>	
+						<h:outputLabel  value="Empresa: "/><br></br>
+						<h:inputText value = "#{concessionariaMB.concessionaria.nomeConcessionaria}"/>
+					</p:column>
+						
+					<p:column>
+						<h:outputLabel value = "CNPJ: " /><br></br>
+						<h:inputText value = "#{concessionariaMB.concessionaria.cnpj}"/>
+					</p:column>
+					
+					<p:column>
+						<h:outputLabel value = "Endereço: " /><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.endereco}"/>
+					</p:column>	
+						
+					<p:column>
+						<h:outputLabel value = "Bairro: "/><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.bairro}"/>
+					</p:column>
+						
+					<p:column>
+						<h:outputLabel value = "Referência: "/><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.referencia}"/>
+					</p:column>	
+						
+					<p:column>
+						<h:outputLabel value = "Site: "/><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.enderecoWEB}"/>
+					</p:column>	
+						
+					<p:column>
+						<h:outputLabel value = "Email: "/><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.email}"/>
+					</p:column>	
+					
+					<p:column>
+						<h:outputLabel value = "Telefone: "/><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.telefone}"/>
+					</p:column>	
+					
+					<p:column>
+						<h:outputLabel value = "Telefone opcional: "/><br></br>
+						<h:inputText value ="#{concessionariaMB.concessionaria.telefone2}"/>
+					</p:column>
+					
+					<p:column>
+						<p:commandButton value = "Alterar"/>
+						<p:commandButton value = "Cancelar" onclick="dialogAlterCon.hide()"/>
+					</p:column>	
+				</h:panelGrid>
+			</p:panel>	
+			</h:form>
 
+		</p:dialog>
 
 	</ui:define>
 </ui:composition>
